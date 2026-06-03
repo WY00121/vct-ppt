@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>无畏契约VCT CN线下观赛完全手册（2026实战版）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=JetBrains+Mono:wght@400;700&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #0d0d0d;
+  --bg-gradient: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 50%, #0d0d0d 100%);
+  --bg-card: #1a1a1a;
+  --bg-card-alt: #1a1d27;
+  --accent: #ff6b00;
+  --accent-light: #ff8c4a;
+  --accent-glow: rgba(255, 107, 0, 0.4);
+  --accent-cyan: #00d4ff;
+  --accent-blue: #3b82f6;
+  --accent-green: #22c55e;
+  --accent-purple: #a855f7;
+  --text-primary: #ffffff;
+  --text-secondary: #888888;
+  --border-color: #2a2a2a;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-primary); font-family: 'Noto Sans SC', sans-serif; }
+.deck-viewport { position: fixed; inset: 0; overflow: hidden; background: var(--bg-gradient); }
+.deck-stage { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 1920px; height: 1080px; transform-origin: center center; }
+.slide { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--bg-gradient); background-image: url('https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/ccv2%2F2026-06-01%2FMiniMax-M2.7%2F2045124398968476328%2Fcdcf78f931b5e5c956b2e3fa94d7b93db2e49fbd6a7a46a72f886c792dfd9acc..jpeg?Expires=1780413237&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=iwXyJbUuegTcj%2BbwyNTwqFsy3bo%3D'); background-size: cover; background-position: center; display: flex; flex-direction: column; padding: 60px 100px 80px 100px; visibility: hidden; opacity: 0; pointer-events: none; }
+.slide::before { content: ''; position: absolute; inset: 0; background: rgba(13, 13, 13, 0.3); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); z-index: 0; }
+.slide.active, .slide.visible { visibility: visible; opacity: 1; pointer-events: auto; z-index: 1; }
+.slide > * { position: relative; z-index: 1; }
+.bg-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,107,53,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,107,53,0.03) 1px, transparent 1px); background-size: 40px 40px; pointer-events: none; }
+.corner-glow { position: absolute; bottom: 0; left: 0; width: 400px; height: 400px; background: radial-gradient(circle at bottom left, var(--accent-glow) 0%, transparent 70%); opacity: 0.3; }
+.corner-glow-right { position: absolute; top: 0; right: 0; width: 400px; height: 400px; background: radial-gradient(circle at top right, rgba(0, 212, 255, 0.2) 0%, transparent 70%); opacity: 0.3; }
+.header-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; position: relative; z-index: 10; }
+.logo-area { display: none; align-items: center; gap: 20px; }
+.logo-badge { width: 50px; height: 50px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); display: flex; align-items: center; justify-content: center; font-family: 'Archivo Black', sans-serif; font-size: 24px; color: #000; clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px); }
+.logo-text { font-size: 20px; font-weight: 700; color: var(--text-primary); }
+.logo-text span { color: var(--accent); }
+.nav-tags { display: flex; gap: 15px; }
+.nav-tag { padding: 8px 16px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 6px; font-size: 13px; color: var(--text-secondary); transition: all 0.3s; }
+.nav-tag.active { border-color: var(--accent); color: var(--accent); background: rgba(255, 107, 0, 0.1); }
+.page-indicator { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--text-secondary); }
+.section-tag { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.tag-number { font-family: 'Archivo Black', sans-serif; font-size: 60px; color: var(--accent); opacity: 0.2; line-height: 1; }
+.tag-text { font-size: 14px; color: var(--accent); font-weight: 700; letter-spacing: 3px; text-transform: uppercase; }
+.tag-line { width: 40px; height: 2px; background: var(--accent); }
+.main-title { font-size: 56px; font-weight: 900; color: var(--text-primary); line-height: 1.2; }
+.main-title span { color: var(--accent); }
+.main-title-xl { font-size: 72px; font-weight: 900; color: var(--text-primary); line-height: 1.1; }
+.main-title-xl span { color: var(--accent); }
+.content-area { display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px; flex: 1; }
+.content-area-full { display: grid; grid-template-columns: 1fr; gap: 20px; flex: 1; }
+.content-thirds { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; flex: 1; }
+.content-quad { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; flex: 1; }
+.info-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 10px; padding: 16px; position: relative; overflow: hidden; transition: all 0.3s; }
+.info-card.clickable { cursor: pointer; }
+.info-card.clickable:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 20px rgba(255, 107, 0, 0.2); }
+.info-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--accent); }
+.info-card.blue::before, .info-card.cyan::before { background: var(--accent-cyan); }
+.info-card.green::before { background: var(--accent-green); }
+.info-card.purple::before { background: var(--accent-purple); }
+.info-card.blue-accent::before { background: var(--accent-blue); }
+.card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.card-icon { width: 32px; height: 32px; background: rgba(255, 107, 0, 0.1); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+.card-title { font-size: 15px; font-weight: 700; color: var(--text-primary); }
+.card-content { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+.card-highlight { position: absolute; right: 12px; top: 12px; font-family: 'JetBrains Mono', monospace; font-size: 24px; font-weight: 700; color: var(--accent); opacity: 0.1; }
+.list-item { display: flex; align-items: flex-start; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--border-color); }
+.list-item:last-child { border-bottom: none; }
+.list-icon { width: 28px; height: 28px; background: rgba(255, 107, 0, 0.1); border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+.list-icon.green { background: rgba(34, 197, 94, 0.1); }
+.list-icon.red { background: rgba(239, 68, 68, 0.1); }
+.list-icon.blue { background: rgba(59, 130, 246, 0.1); }
+.list-icon.cyan { background: rgba(0, 212, 255, 0.1); }
+.list-text { flex: 1; }
+.list-title { font-size: 14px; font-weight: 700; color: var(--text-primary); margin-bottom: 3px; }
+.list-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.4; }
+.data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.data-table th { background: var(--bg-card); padding: 10px 14px; text-align: left; font-weight: 700; color: var(--accent); border-bottom: 2px solid var(--accent); text-transform: uppercase; letter-spacing: 1px; font-size: 11px; }
+.data-table td { padding: 10px 14px; border-bottom: 1px solid var(--border-color); color: var(--text-secondary); }
+.data-table tr:hover td { background: rgba(255, 107, 0, 0.05); }
+.data-table .highlight { color: var(--text-primary); font-weight: 700; }
+.stat-box { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; padding: 14px; text-align: center; }
+.stat-number { font-family: 'JetBrains Mono', monospace; font-size: 28px; font-weight: 700; color: var(--accent); line-height: 1; }
+.stat-label { font-size: 12px; color: var(--text-secondary); margin-top: 6px; }
+.alert-box { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; padding: 14px 18px; display: flex; align-items: flex-start; gap: 12px; margin: 10px 0; }
+.alert-box.warning { border-color: #f59e0b; background: rgba(245, 158, 11, 0.1); }
+.alert-box.danger { border-color: #ef4444; background: rgba(239, 68, 68, 0.1); }
+.alert-box.success { border-color: #22c55e; background: rgba(34, 197, 94, 0.1); }
+.alert-box.info { border-color: var(--accent-cyan); background: rgba(0, 212, 255, 0.1); }
+.alert-icon { font-size: 20px; flex-shrink: 0; }
+.alert-content { flex: 1; }
+.alert-title { font-size: 14px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
+.alert-text { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+.timeline { position: relative; padding-left: 30px; }
+.timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: var(--border-color); }
+.timeline-item { position: relative; padding-bottom: 25px; }
+.timeline-item::before { content: ''; position: absolute; left: -26px; top: 4px; width: 12px; height: 12px; background: var(--accent); border-radius: 50%; }
+.timeline-time { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--accent); margin-bottom: 6px; }
+.timeline-title { font-size: 16px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
+.timeline-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
+.bottom-stats { display: flex; gap: 30px; margin-top: auto; padding-top: 30px; border-top: 1px solid var(--border-color); }
+.stat-item { display: flex; align-items: center; gap: 14px; }
+.stat-icon { width: 44px; height: 44px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+.stat-info { display: flex; flex-direction: column; }
+.stat-value { font-size: 22px; font-weight: 700; color: var(--text-primary); font-family: 'JetBrains Mono', monospace; }
+.stat-label { font-size: 12px; color: var(--text-secondary); }
+.slide-divider { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+.slide-divider .section-num { font-family: 'Archivo Black', sans-serif; font-size: 200px; color: var(--accent); opacity: 0.1; line-height: 1; margin-bottom: -40px; }
+.slide-divider .section-title { font-size: 64px; font-weight: 900; color: var(--text-primary); margin-bottom: 20px; }
+.slide-divider .section-subtitle { font-size: 24px; color: var(--text-secondary); }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; flex: 1; }
+.col-title { font-size: 16px; font-weight: 700; color: var(--accent); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--accent); }
+@keyframes fadeSlideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.animate-in { animation: fadeSlideUp 0.6s ease-out both; }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+@media print { html, body { width: 1920px; height: auto; overflow: visible; background: #fff; } .deck-viewport { position: static; overflow: visible; background: #fff; } .deck-stage { position: static; width: auto; height: auto; transform: none !important; } .slide { position: relative; display: block !important; visibility: visible !important; opacity: 1 !important; width: 1920px; height: 1080px; break-after: page; page-break-after: always; } .deck-controls { display: none !important; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.2s !important; } }
+</style>
+</head>
+<body>
+<div class="deck-viewport">
+  <div class="deck-stage">
+
+    <!-- SLIDE 0: 封面 -->
+    <div class="slide active" id="slide-0">
+      <div class="bg-grid"></div>
+      <div class="corner-glow"></div>
+      <div class="header-bar" >
+        <div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div>
+        <div class="page-indicator">01 / 25</div>
+      </div>
+      <div class="content-area" style="align-items: center;">
+        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; width: 100%;">
+          <h1 class="main-title-xl animate-in">无畏契约</h1>
+          <h2 class="main-title-xl animate-in" style="color: var(--accent); margin-top: 10px;">VCT CN</h2>
+          <h3 class="main-title-xl animate-in" style="margin-top: 10px;">线下观赛</h3>
+        </div>
+        <div style="display: flex; flex-direction: column; justify-content: center;">
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+            <div class="info-card clickable animate-in delay-1" data-goto="2" onclick="goToSlide(2)"><span class="card-highlight">01</span><div class="card-header"><div class="card-icon">📋</div><div class="card-title">观赛决策</div></div><div class="card-content">2026赛历 · 权益体系 · 信息渠道<br><span style="color: var(--accent);">P3-5</span></div></div>
+            <div class="info-card clickable cyan animate-in delay-2" data-goto="5" onclick="goToSlide(5)"><span class="card-highlight">02</span><div class="card-header"><div class="card-icon">🎫</div><div class="card-title">购票攻略</div></div><div class="card-content">官方渠道 · 强实名制 · 抢票技巧<br><span style="color: var(--accent-cyan);">P6-9</span></div></div>
+            <div class="info-card clickable green animate-in delay-3" data-goto="9" onclick="goToSlide(9)"><span class="card-highlight">03</span><div class="card-header"><div class="card-icon">🎒</div><div class="card-title">行前准备</div></div><div class="card-content">必带清单 · 入场流程 · 特殊情况<br><span style="color: var(--accent-green);">P10-13</span></div></div>
+            <div class="info-card clickable purple animate-in delay-4" data-goto="13" onclick="goToSlide(13)"><span class="card-highlight">04</span><div class="card-header"><div class="card-icon">🎉</div><div class="card-title">现场体验</div></div><div class="card-content">应援礼 · 周边 · 餐饮 · 赋能掉落<br><span style="color: var(--accent-purple);">P14-16</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 1: 目录 -->
+    <div class="slide" id="slide-1">
+      <div class="bg-grid"></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">目录</span></div><div class="page-indicator">02 / 25</div></div>
+      <div class="content-area-full">
+        <div class="section-tag"><span class="tag-number">01</span><span class="tag-text">Contents</span></div>
+        <h2 class="main-title" style="margin-bottom: 20px;">手册目录</h2>
+        <div class="content-quad" style="gap: 30px;">
+          <div class="info-card clickable animate-in delay-1" data-goto="2" onclick="goToSlide(2)"><span class="card-highlight">01</span><div class="card-header"><div class="card-icon">📋</div><div class="card-title">观赛决策</div></div><div class="card-content">2026赛历 · 权益体系 · 信息渠道<br><span style="color: var(--accent);">P3-5</span></div></div>
+          <div class="info-card clickable animate-in delay-2" data-goto="5" onclick="goToSlide(5)"><span class="card-highlight">02</span><div class="card-header"><div class="card-icon">🎫</div><div class="card-title">购票攻略</div></div><div class="card-content">官方渠道 · 强实名制 · 抢票技巧<br><span style="color: var(--accent);">P6-9</span></div></div>
+          <div class="info-card clickable animate-in delay-3" data-goto="9" onclick="goToSlide(9)"><span class="card-highlight">03</span><div class="card-header"><div class="card-icon">🎒</div><div class="card-title">行前准备</div></div><div class="card-content">必带清单 · 入场流程 · 特殊情况<br><span style="color: var(--accent);">P10-13</span></div></div>
+          <div class="info-card clickable animate-in delay-4" data-goto="13" onclick="goToSlide(13)"><span class="card-highlight">04</span><div class="card-header"><div class="card-icon">🎉</div><div class="card-title">现场体验</div></div><div class="card-content">应援礼 · 周边 · 餐饮 · 赋能掉落<br><span style="color: var(--accent);">P14-16</span></div></div>
+        </div>
+        <div class="content-quad" style="gap: 30px; margin-top: 30px;">
+          <div class="info-card clickable blue-accent animate-in delay-1" data-goto="16" onclick="goToSlide(16)"><span class="card-highlight">05</span><div class="card-header"><div class="card-icon">🤝</div><div class="card-title">选手互动</div></div><div class="card-content">拍手环节 · 签名获取 · 避坑要点<br><span style="color: var(--accent-blue);">P17-19</span></div></div>
+          <div class="info-card clickable animate-in delay-2" data-goto="19" onclick="goToSlide(19)"><span class="card-highlight">06</span><div class="card-header"><div class="card-icon">📊</div><div class="card-title">实用参考</div></div><div class="card-content">比赛时间 · 座位选择 · 场馆规则<br><span style="color: var(--accent);">P20-22</span></div></div>
+          <div class="info-card clickable cyan animate-in delay-3" data-goto="22" onclick="goToSlide(22)"><span class="card-highlight">07</span><div class="card-header"><div class="card-icon">📍</div><div class="card-title">速查清单</div></div><div class="card-content">出发前必查 · 核心避坑要点<br><span style="color: var(--accent-cyan);">P23-24</span></div></div>
+          <div class="info-card clickable green animate-in delay-4" data-goto="24" onclick="goToSlide(24)"><span class="card-highlight">08</span><div class="card-header"><div class="card-icon">🏆</div><div class="card-title">结尾致谢</div></div><div class="card-content">祝您观赛愉快<br><span style="color: var(--accent-green);">P25</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 2: 2026赛事日历 -->
+    <div class="slide" id="slide-2">
+      <div class="bg-grid"></div><div class="corner-glow"></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">观赛决策</span></div><div class="page-indicator">03 / 25</div></div>
+      <div class="content-area-full">
+        <div class="section-tag"><span class="tag-number">01</span><span class="tag-text">Event Calendar 2026</span></div>
+        <h2 class="main-title" style="margin-bottom: 30px;">2026年赛事日历</h2>
+        <div class="content-thirds">
+          <div class="info-card" style="padding: 30px;">
+            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+              <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 900; color: #000;">1</div>
+              <div><div style="font-size: 22px; font-weight: 700; color: var(--text-primary);">第一赛段</div><div style="font-size: 14px; color: var(--accent);">常规赛</div></div>
+            </div>
+            <div class="list-item" style="padding: 10px 0; border: none;"><div class="list-icon">📍</div><div class="list-text"><div class="list-title">杭州</div><div class="list-desc">第一赛段举办城市之一</div></div></div>
+            <div class="list-item" style="padding: 10px 0; border: none;"><div class="list-icon">📍</div><div class="list-text"><div class="list-title">北京</div><div class="list-desc">第一赛段举办城市之一</div></div></div>
+          </div>
+          <div class="info-card blue-accent" style="padding: 30px;">
+            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+              <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 900; color: #000;">2</div>
+              <div><div style="font-size: 22px; font-weight: 700; color: var(--text-primary);">第二赛段</div><div style="font-size: 14px; color: var(--accent-cyan);">常规赛</div></div>
+            </div>
+            <div class="list-item" style="padding: 10px 0; border: none;"><div class="list-icon blue">📍</div><div class="list-text"><div class="list-title">长沙</div><div class="list-desc">第二赛段举办城市之一</div></div></div>
+            <div class="list-item" style="padding: 10px 0; border: none;"><div class="list-icon blue">📍</div><div class="list-text"><div class="list-title">成都</div><div class="list-desc">第二赛段举办城市之一</div></div></div>
+          </div>
+          <div class="info-card green" style="padding: 30px;">
+            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+              <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--accent-green), #4ade80); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 28px;">🏆</div>
+              <div><div style="font-size: 22px; font-weight: 700; color: var(--text-primary);">冠军赛</div><div style="font-size: 14px; color: var(--accent-green);">国际赛事</div></div>
+            </div>
+            <div class="list-item" style="padding: 10px 0; border: none;"><div class="list-icon green">📍</div><div class="list-text"><div class="list-title">上海</div><div class="list-desc">国际赛事举办城市</div></div></div>
+            <div class="list-item" style="padding: 10px 0; border: none;"><div class="list-icon green">⭐</div><div class="list-text"><div class="list-title">最高级别</div><div class="list-desc">VCT年度收官国际大赛</div></div></div>
+          </div>
+        </div>
+        <div class="alert-box info" style="margin-top: 30px;"><div class="alert-icon">📌</div><div class="alert-content"><div class="alert-title">新手必知</div><div class="alert-text">上海冠军赛是年度最高级别赛事，无VCT源能中心优先购，大概率采用万事达信用卡优先购</div></div></div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3: VCT源能中心 -->
+    <div class="slide" id="slide-3">
+      <div class="bg-grid"></div><div class="corner-glow"></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">权益体系</span></div><div class="page-indicator">04 / 25</div></div>
+      <div class="content-area-full">
+        <div class="section-tag"><span class="tag-number">02</span><span class="tag-text">VCT Energy Center</span></div>
+        <h2 class="main-title" style="margin-bottom: 30px;">核心权益体系：VCT源能中心</h2>
+        <div class="alert-box warning" style="margin-bottom: 30px;"><div class="alert-icon">⚠️</div><div class="alert-content"><div class="alert-title">重要平台</div><div class="alert-text">这是中国赛区唯一官方观赛权益平台（微信小程序），所有线下观赛福利均通过此发放</div></div></div>
+        <div class="content-area" style="gap: 30px;">
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div class="info-card"><div class="card-header"><div class="card-icon">💰</div><div class="card-title">积分计算规则</div></div>
+              <div class="list-item" style="padding: 8px 0; border: none;"><div class="list-icon">1</div><div class="list-text"><div class="list-title">1元票价 = 1积分</div></div></div>
+              <div class="list-item" style="padding: 8px 0; border: none;"><div class="list-icon">2</div><div class="list-text"><div class="list-title">必须本人刷脸入场后到账</div><div class="list-desc">购票不观赛无积分</div></div></div>
+              <div class="list-item" style="padding: 8px 0; border: none;"><div class="list-icon red">!</div><div class="list-text"><div class="list-title">仅国内联赛计入</div><div class="list-desc">国际赛事大概率不计入</div></div></div>
+            </div>
+            <div class="info-card blue-accent"><div class="card-header"><div class="card-icon">📈</div><div class="card-title">段位升级条件</div></div><div class="card-content">需要<strong style="color: var(--text-primary);">同时满足</strong>累计积分和观赛次数两个条件</div></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <h3 style="font-size: 18px; color: var(--accent); margin-bottom: 10px;">各段位核心权益对比</h3>
+            <table class="data-table"><thead><tr><th>段位</th><th>核心门槛</th><th>专属权益</th></tr></thead>
+              <tbody>
+                <tr><td class="highlight">💎 钻石</td><td>3888分+12次观赛</td><td>1+1优先购票权、提前30分钟入场</td></tr>
+                <tr><td class="highlight">⭐ 超凡/神话</td><td>7888分+25次观赛</td><td>钻石全部权益+可带1人优先进场+内场抽赛后互动</td></tr>
+                <tr><td class="highlight">🔥 无畏战魂</td><td>28888分+80次观赛</td><td>全部权益+内场直接进入赛后互动区</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 4: 信息获取渠道 -->
+    <div class="slide" id="slide-4">
+      <div class="bg-grid"></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">信息渠道</span></div><div class="page-indicator">05 / 25</div></div>
+      <div class="content-area-full">
+        <div class="section-tag"><span class="tag-number">03</span><span class="tag-text">Official Channels</span></div>
+        <h2 class="main-title" style="margin-bottom: 30px;">官方信息获取渠道</h2>
+        <div class="content-quad">
+          <div class="info-card"><div class="card-header"><div class="card-icon">📢</div><div class="card-title">开票通知</div></div><div style="font-size: 16px; font-weight: 700; color: var(--text-primary);">微博 @无畏契约电竞</div><div class="card-content" style="margin-top: 10px;">开票通知与赛事公告发布平台</div></div>
+          <div class="info-card cyan"><div class="card-header"><div class="card-icon">💎</div><div class="card-title">积分查询</div></div><div style="font-size: 16px; font-weight: 700; color: var(--text-primary);">微信小程序「VCT源能中心」</div><div class="card-content" style="margin-top: 10px;">积分查询与权益管理</div></div>
+          <div class="info-card blue-accent"><div class="card-header"><div class="card-icon">🎮</div><div class="card-title">道具掉落</div></div><div style="font-size: 16px; font-weight: 700; color: var(--text-primary);">微信小程序「无畏契约官方助手」</div><div class="card-content" style="margin-top: 10px;">游戏道具掉落绑定</div></div>
+          <div class="info-card green"><div class="card-header"><div class="card-icon">❤️</div><div class="card-title">粉丝活动</div></div><div style="font-size: 16px; font-weight: 700; color: var(--text-primary);">掌瓦APP活动专区</div><div class="card-content" style="margin-top: 10px;">粉丝活动门票获取</div></div>
+        </div>
+        <div class="two-col" style="margin-top: 30px;">
+          <div class="info-card purple"><div class="card-header"><div class="card-icon">🙋</div><div class="card-title">志愿者报名</div></div><div class="card-content">官方微博发布的填报链接</div></div>
+          <div class="alert-box info"><div class="alert-icon">💡</div><div class="alert-content"><div class="alert-title">老手提示</div><div class="alert-text">建议提前关注微博@无畏契约电竞，开票第一时间获取通知</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 5: 购票渠道 -->
+    <div class="slide" id="slide-5">
+      <div class="bg-grid"></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">购票攻略</span></div><div class="page-indicator">06 / 25</div></div>
+      <div class="content-area-full">
+        <div class="section-tag"><span class="tag-number">04</span><span class="tag-text">Official Channels</span></div>
+        <h2 class="main-title" style="margin-bottom: 30px;">官方购票渠道</h2>
+        <div class="content-area" style="gap: 40px;">
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div class="info-card" style="border-color: var(--accent);"><div class="card-header"><div class="card-icon" style="background: rgba(255, 107, 0, 0.2);">🏟️</div><div class="card-title">国内联赛</div></div><div style="font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 10px;">bilibili会员购</div><div style="color: var(--text-secondary);">所有门票统一在此平台发售</div></div>
+            <div class="info-card cyan" style="border-color: var(--accent-cyan);"><div class="card-header"><div class="card-icon" style="background: rgba(0, 212, 255, 0.2);">🏆</div><div class="card-title">上海冠军赛</div></div><div style="font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 10px;">万事达信用卡优先购</div><div style="color: var(--text-secondary);">无VCT源能中心优先购</div></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <h3 style="font-size: 18px; color: var(--accent); margin-bottom: 10px;">其他可信渠道</h3>
+            <div class="info-card green"><div class="card-header"><div class="card-icon green">✓</div><div class="card-title">源能中心积分兑换</div></div><div class="card-content">可用积分兑换门票</div></div>
+            <div class="info-card green"><div class="card-header"><div class="card-icon green">✓</div><div class="card-title">掌瓦官方活动赠票</div></div><div class="card-content">通过官方活动获取赠票</div></div>
+            <div class="alert-box danger"><div class="alert-icon">🚫</div><div class="alert-content"><div class="alert-title">绝对禁止</div><div class="alert-text">转赠会被永久拉黑，切勿相信任何票贩子</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 6: 购票规则 -->
+    <div class="slide" id="slide-6">
+      <div class="bg-grid"></div><div class="corner-glow"></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">购票规则</span></div><div class="page-indicator">07 / 25</div></div>
+      <div class="content-area-full">
+        <div class="section-tag"><span class="tag-number">05</span><span class="tag-text">Ticket Rules</span></div>
+        <h2 class="main-title" style="margin-bottom: 30px;">购票基本规则</h2>
+        <div class="content-quad">
+          <div class="info-card" style="border-color: #ef4444;"><div class="card-header"><div class="card-icon" style="background: rgba(239, 68, 68, 0.2);">🔒</div><div class="card-title">强实名制</div></div><div class="card-content">门票与身份证绑定<br><strong style="color: #ef4444;">不可转让</strong></div></div>
+          <div class="info-card"><div class="card-header"><div class="card-icon">📅</div><div class="card-title">开票时间</div></div><div class="card-content">赛前10天至3周<br>以官方公告为准</div></div>
+          <div class="info-card cyan"><div class="card-header"><div class="card-icon" style="background: rgba(0, 212, 255, 0.2);">🎫</div><div class="card-title">选座机制</div></div><div class="card-content">仅选择区域<br>不选具体座位号</div></div>
+          <div class="info-card green"><div class="card-header"><div class="card-icon" style="background: rgba(34, 197, 94, 0.2);">👥</div><div class="card-title">连坐票</div></div><div class="card-content">同账号2张有概率连坐<br>多人需对应数量优先购</div></div>
+        </div>
+        <div class="two-col" style="margin-top: 30px;">
+          <div class="alert-box warning"><div class="alert-icon">⚠️</div><div class="alert-content"><div class="alert-title">回流票机制</div><div class="alert-text">会统一释放，但无提前通知，纯靠运气</div></div></div>
+          <div class="alert-box info"><div class="alert-icon">💡</div><div class="alert-content"><div class="alert-title">开票方式</div><div class="alert-text">所有场次同时开票，需提前确定抢票优先级</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 7: 抢票技巧 -->
+    <div class="slide" id="slide-7">
+      <div class="bg-grid"></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">抢票技巧</span></div><div class="page-indicator">08 / 25</div></div>
+      <div class="content-area-full">
+        <div class="section-tag"><span class="tag-number">06</span><span class="tag-text">Ticketing Tips</span></div>
+        <h2 class="main-title" style="margin-bottom: 30px;">抢票难度与技巧</h2>
+        <div class="content-thirds">
+          <div class="info-card" style="border-color: #ef4444;"><div style="text-align: center; margin-bottom: 15px;"><span style="display: inline-block; padding: 6px 16px; background: #ef4444; color: #fff; font-size: 12px; font-weight: 700; border-radius: 4px;">🔥 极难抢</span></div><div class="card-header"><div class="card-icon" style="background: rgba(239, 68, 68, 0.2);">⚔️</div><div class="card-title">EDG场次</div></div><div class="card-content">内场和看台均极难抢<br><strong style="color: #ef4444;">建议优先考虑优先购</strong></div></div>
+          <div class="info-card" style="border-color: #f59e0b;"><div style="text-align: center; margin-bottom: 15px;"><span style="display: inline-block; padding: 6px 16px; background: #f59e0b; color: #000; font-size: 12px; font-weight: 700; border-radius: 4px;">⚡ 较难抢</span></div><div class="card-header"><div class="card-icon" style="background: rgba(245, 158, 11, 0.2);">🎮</div><div class="card-title">DRG/XLG场次</div></div><div class="card-content">热度较高<br>无优先购抢内场需要一定手速</div></div>
+          <div class="info-card green" style="border-color: var(--accent-green);"><div style="text-align: center; margin-bottom: 15px;"><span style="display: inline-block; padding: 6px 16px; background: var(--accent-green); color: #000; font-size: 12px; font-weight: 700; border-radius: 4px;">✓ 较容易</span></div><div class="card-header"><div class="card-icon" style="background: rgba(34, 197, 94, 0.2);">📺</div><div class="card-title">普通场次</div></div><div class="card-content">看台票手速<br><strong style="color: var(--accent-green);">2-4秒基本可稳拿</strong></div></div>
+        </div>
+        <div class="alert-box danger" style="margin-top: 30px;"><div class="alert-icon">🚫</div><div class="alert-content"><div class="alert-title">避坑提醒</div><div class="alert-text"><strong>不要使用多个B站账号同时抢票</strong>，会被系统判定为异常并屏蔽</div></div></div>
+      </div>
+    </div>
+
+    <!-- SLIDE 8: 票价升舱 -->
+    <div class="slide" id="slide-8">
+      <div class="bg-grid"></div><div class="corner-glow"></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">票价升舱</span></div><div class="page-indicator">09 / 25</div></div>
+      <div class="content-area-full">
+        <div class="section-tag"><span class="tag-number">07</span><span class="tag-text">Pricing & Upgrade</span></div>
+        <h2 class="main-title" style="margin-bottom: 30px;">票价与升舱政策</h2>
+        <div class="content-area" style="gap: 40px;">
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <h3 style="font-size: 18px; color: var(--accent); margin-bottom: 10px;">票价参考</h3>
+            <div class="info-card"><div class="card-header"><div class="card-icon">🏟️</div><div class="card-title">常规赛内场票</div></div><div style="font-size: 36px; font-weight: 700; color: var(--accent); font-family: 'JetBrains Mono', monospace;">¥328</div></div>
+            <div class="info-card"><div class="card-header"><div class="card-icon">📺</div><div class="card-title">常规赛看台票</div></div><div style="font-size: 36px; font-weight: 700; color: var(--text-primary); font-family: 'JetBrains Mono', monospace;">¥200-280</div></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <h3 style="font-size: 18px; color: var(--accent); margin-bottom: 10px;">升舱政策</h3>
+            <div class="info-card green"><div class="card-header"><div class="card-icon green">✓</div><div class="card-title">官方升舱（允许）</div></div><div class="card-content">✓ 看台二等升一等<br>✓ 内场后排升前排</div></div>
+            <div class="alert-box danger"><div class="alert-icon">🚫</div><div class="alert-content"><div class="alert-title">绝对禁止</div><div class="alert-text">任何"看台升内场"的说法都是<strong>骗局</strong>，看台与内场物理隔离，违规进入会被<strong>永久拉黑</strong></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 9: 必带清单 -->
+    <div class="slide" id="slide-9">
+      <div class="bg-grid"></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">行前准备</span></div><div class="page-indicator">10 / 25</div></div>
+      <div class="content-area-full">
+        <div class="section-tag"><span class="tag-number">08</span><span class="tag-text">Packing List</span></div>
+        <h2 class="main-title" style="margin-bottom: 30px;">必带物品清单</h2>
+        <div class="content-quad">
+          <div class="info-card green"><div class="card-header"><div class="card-icon green">1</div><div class="card-title">身份证</div></div><div class="card-content" style="color: var(--accent-green); font-weight: 700;">核心证件</div></div>
+          <div class="info-card"><div class="card-header"><div class="card-icon">2</div><div class="card-title">空水杯</div></div><div class="card-content">场馆内有饮水机</div></div>
+          <div class="info-card"><div class="card-header"><div class="card-icon">3</div><div class="card-title">充电宝</div></div><div class="card-content">手机电量保障</div></div>
+          <div class="info-card"><div class="card-header"><div class="card-icon">4</div><div class="card-title">笔</div></div><div class="card-content">用于签名环节</div></div>
+        </div>
+        <div class="content-quad" style="margin-top: 25px;">
+          <div class="info-card"><div class="card-header"><div class="card-icon">5</div><div class="card-title">纸巾/湿巾</div></div><div class="card-content">便携装</div></div>
+          <div class="info-card"><div class="card-header"><div class="card-icon">6</div><div class="card-title">零食</div></div><div class="card-content">无强烈气味</div></div>
+          <div class="info-card"><div class="card-header"><div class="card-icon">7</div><div class="card-title">大容量背包</div></div><div class="card-content">装周边和应援物</div></div>
+          <div class="info-card cyan"><div class="card-header"><div class="card-icon cyan">⭐</div><div class="card-title">提前准备</div></div><div class="card-content">建议出发前一晚检查</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 10: 禁止携带 -->
+    <div class="slide" id="slide-10">
+      <div class="bg-grid"></div><div class="corner-glow"></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">禁止携带</span></div><div class="page-indicator">11 / 25</div></div>
+      <div class="content-area-full">
+        <div class="section-tag"><span class="tag-number">09</span><span class="tag-text">Prohibited Items</span></div>
+        <h2 class="main-title" style="margin-bottom: 30px;">禁止携带物品</h2>
+        <div class="content-thirds">
+          <div class="info-card" style="border-color: #ef4444;"><div class="card-header"><div class="card-icon" style="background: rgba(239, 68, 68, 0.2);">🚫</div><div class="card-title">任何饮品</div></div><div class="card-content">矿泉水、奶茶、袋装饮料<br><strong style="color: #ef4444;">全部禁止</strong></div></div>
+          <div class="info-card" style="border-color: #ef4444;"><div class="card-header"><div class="card-icon" style="background: rgba(239, 68, 68, 0.2);">📷</div><div class="card-title">自拍杆/支架</div></div><div class="card-content">自拍杆、相机支架<br><strong style="color: #ef4444;">全部禁止</strong></div></div>
+          <div class="info-card" style="border-color: #ef4444;"><div class="card-header"><div class="card-icon" style="background: rgba(239, 68, 68, 0.2);">💥</div><div class="card-title">易燃易爆</div></div><div class="card-content">易燃易爆物品<br><strong style="color: #ef4444;">严格禁止</strong></div></div>
+        </div>
+        <div class="content-thirds" style="margin-top: 25px;">
+          <div class="info-card" style="border-color: #ef4444;"><div class="card-header"><div class="card-icon" style="background: rgba(239, 68, 68, 0.2);">🍜</div><div class="card-title">强烈气味食物</div></div><div class="card-content">有强烈气味的食物<br><strong style="color: #ef4444;">禁止携带</strong></div></div>
+          <div class="info-card" style="border-color: #ef4444;"><div class="card-header"><div class="card-icon" style="background: rgba(239, 68, 68, 0.2);">🎁</div><div class="card-title">任何礼物</div></div><div class="card-content">包括信件<br><strong style="color: #ef4444;">严禁赠送</strong></div></div>
+          <div class="alert-box danger"><div class="alert-icon">⚠️</div><div class="alert-content"><div class="alert-title">特别提醒</div><div class="alert-text">选手私自收礼物会被联盟罚款</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 11: 入场流程 -->
+    <div class="slide" id="slide-11">
+      <div class="bg-grid"></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">入场流程</span></div><div class="page-indicator">12 / 25</div></div>
+      <div class="content-area-full">
+        <div class="section-tag"><span class="tag-number">10</span><span class="tag-text">Entry Process</span></div>
+        <h2 class="main-title" style="margin-bottom: 30px;">入场时间与流程</h2>
+        <div class="content-area" style="gap: 40px;">
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div class="info-card"><div class="card-header"><div class="card-icon">👤</div><div class="card-title">普通观众</div></div><div style="font-size: 32px; font-weight: 700; color: var(--accent);">15:00</div><div class="card-content">开始检票入场</div></div>
+            <div class="info-card cyan"><div class="card-header"><div class="card-icon" style="background: rgba(0, 212, 255, 0.2);">⭐</div><div class="card-title">超凡/神话带入</div></div><div style="font-size: 32px; font-weight: 700; color: var(--accent-cyan);">提前30分钟</div><div class="card-content">带入服务通常收费</div></div>
+            <div class="info-card green"><div class="card-header"><div class="card-icon" style="background: rgba(34, 197, 94, 0.2);">🚪</div><div class="card-title">迟到入场</div></div><div style="font-size: 32px; font-weight: 700; color: var(--accent-green);">随时入场</div><div class="card-content">20:00到达仍能进场</div></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <h3 style="font-size: 18px; color: var(--accent); margin-bottom: 10px;">入场流程</h3>
+            <div class="timeline">
+              <div class="timeline-item"><div class="timeline-time">15:00</div><div class="timeline-title">开始检票</div><div class="timeline-desc">凭身份证+门票入场</div></div>
+              <div class="timeline-item"><div class="timeline-time">14:30</div><div class="timeline-title">超凡/神话提前入场</div><div class="timeline-desc">享受优先入场权益</div></div>
+              <div class="timeline-item"><div class="timeline-time">开赛后</div><div class="timeline-title">随时可入场</div><div class="timeline-desc">比赛期间自由进出</div></div>
+              <div class="timeline-item"><div class="timeline-time">多次</div><div class="timeline-title">多次进出</div><div class="timeline-desc">再次入场需重新检票</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 12: 特殊情况处理 -->
+    <div class="slide" id="slide-12">
+      <div class="bg-grid"></div><div class="corner-glow"></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">特殊情况</span></div><div class="page-indicator">13 / 25</div></div>
+      <div class="content-area-full">
+        <div class="section-tag"><span class="tag-number">11</span><span class="tag-text">Special Cases</span></div>
+        <h2 class="main-title" style="margin-bottom: 30px;">特殊情况处理</h2>
+        <div class="content-thirds">
+          <div class="info-card warning" style="border-color: #f59e0b;"><div class="card-header"><div class="card-icon" style="background: rgba(245, 158, 11, 0.2);">🆔</div><div class="card-title">忘带身份证</div></div><div class="card-content"><strong style="color: #f59e0b;">解决方案</strong><br>扫描检票口外的二维码<br>进行人脸登记入场</div></div>
+          <div class="info-card" style="border-color: var(--accent-purple);"><div class="card-header"><div class="card-icon" style="background: rgba(168, 85, 247, 0.2);">👔</div><div class="card-title">Cosplay观众</div></div><div class="card-content"><strong style="color: var(--accent-purple);">解决方案</strong><br>若担心刷脸不通过<br>可使用二维码登记</div></div>
+          <div class="info-card green"><div class="card-header"><div class="card-icon" style="background: rgba(34, 197, 94, 0.2);">👶</div><div class="card-title">未成年人</div></div><div class="card-content"><strong style="color: var(--accent-green);">通行规则</strong><br>凭本人身份证独立入场<br>无需家长陪同</div></div>
+        </div>
+        <div class="alert-box info" style="margin-top: 30px;"><div class="alert-icon">💡</div><div class="alert-content"><div class="alert-title">老手提示</div><div class="alert-text">建议提前到达场馆，留出充足时间处理突发情况</div></div></div>
+      </div>
+    </div>
+
+    <!-- SLIDE 13: 应援礼 -->
+    <div class="slide" id="slide-13">
+      <div class="bg-grid"></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">现场体验</span></div><div class="page-indicator">14 / 25</div></div>
+      <div class="content-area-full">
+        <div class="section-tag"><span class="tag-number">12</span><span class="tag-text">Cheer Gifts</span></div>
+        <h2 class="main-title" style="margin-bottom: 30px;">应援礼领取攻略</h2>
+        <div class="content-area" style="gap: 40px;">
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div class="info-card"><div class="card-header"><div class="card-icon">📢</div><div class="card-title">信息发布</div></div><div class="card-content">各战队应援礼信息会在<br><strong style="color: var(--accent);">开赛前7天</strong>发布于<br>官方微博和粉丝后援会</div></div>
+            <div class="info-card cyan"><div class="card-header"><div class="card-icon" style="background: rgba(0, 212, 255, 0.2);">⏰</div><div class="card-title">排队建议</div></div><div class="card-content">热门战队应援礼<br>建议<strong style="color: var(--accent-cyan);">提前1-2小时</strong>排队</div></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div class="alert-box info"><div class="alert-icon">💡</div><div class="alert-content"><div class="alert-title">领取要点</div><div class="alert-text"><strong>必须进场后才能领取</strong><br>早点排队有机会领到多个战队的应援礼</div></div></div>
+            <h3 style="font-size: 18px; color: var(--accent); margin-bottom: 10px;">领取提示</h3>
+            <div class="list-item"><div class="list-icon green">✓</div><div class="list-text"><div class="list-title">提前关注官方渠道</div><div class="list-desc">微博@无畏契约电竞 + 粉丝后援会</div></div></div>
+            <div class="list-item"><div class="list-icon green">✓</div><div class="list-text"><div class="list-title">早点到场排队</div><div class="list-desc">热门应援礼供不应求</div></div></div>
+            <div class="list-item"><div class="list-icon green">✓</div><div class="list-text"><div class="list-title">多战队攻略</div><div class="list-desc">如果排队早可以领多个战队</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 14: 周边餐饮 -->
+    <div class="slide" id="slide-14">
+      <div class="bg-grid"></div><div class="corner-glow"></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">周边餐饮</span></div><div class="page-indicator">15 / 25</div></div>
+      <div class="content-area-full">
+        <div class="section-tag"><span class="tag-number">13</span><span class="tag-text">Shopping & Food</span></div>
+        <h2 class="main-title" style="margin-bottom: 30px;">周边购买与餐饮</h2>
+        <div class="two-col" style="gap: 40px;">
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <h3 style="font-size: 18px; color: var(--accent); margin-bottom: 10px;">周边购买</h3>
+            <div class="info-card"><div class="card-header"><div class="card-icon">🛍️</div><div class="card-title">购买地点</div></div><div class="card-content">场馆外设有官方周边售卖区</div></div>
+            <div class="info-card cyan"><div class="card-header"><div class="card-icon" style="background: rgba(0, 212, 255, 0.2);">⏰</div><div class="card-title">购买时间</div></div><div class="card-content">下午4点到达基本可买到<br><strong style="color: var(--accent-cyan);">热门战队周边可能提前售罄</strong></div></div>
+            <div class="alert-box warning"><div class="alert-icon">❗</div><div class="alert-content"><div class="alert-title">重要提醒</div><div class="alert-text">官方周边<strong>不提供打包袋</strong>，需自行准备</div></div></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <h3 style="font-size: 18px; color: var(--accent); margin-bottom: 10px;">餐饮解决方案</h3>
+            <div class="info-card"><div class="card-header"><div class="card-icon">🍔</div><div class="card-title">场馆内餐饮</div></div><div class="card-content">价格适中<br>以小吃为主，<strong style="color: var(--text-primary);">无正餐</strong></div></div>
+            <div class="info-card green"><div class="card-header"><div class="card-icon" style="background: rgba(34, 197, 94, 0.2);">🛵</div><div class="card-title">外卖方案</div></div><div class="card-content">可点外卖<br>需自行到场馆门口领取<br><strong style="color: var(--accent-green);">支持自由进出</strong></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 15: 赋能掉落 -->
+    <div class="slide" id="slide-15">
+      <div class="bg-grid"></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">赋能掉落</span></div><div class="page-indicator">16 / 25</div></div>
+      <div class="content-area-full">
+        <div class="section-tag"><span class="tag-number">14</span><span class="tag-text">In-Game Drops</span></div>
+        <h2 class="main-title" style="margin-bottom: 30px;">赋能掉落（游戏道具）</h2>
+        <div class="content-area" style="gap: 40px;">
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div class="info-card" style="border-color: var(--accent-purple);"><div class="card-header"><div class="card-icon" style="background: rgba(168, 85, 247, 0.2);">🎲</div><div class="card-title">掉落方式</div></div><div class="card-content">全场随机抽取<br>部分赛事<strong style="color: var(--accent-purple);">仅内场观众</strong>可参与</div></div>
+            <div class="info-card cyan"><div class="card-header"><div class="card-icon" style="background: rgba(0, 212, 255, 0.2);">📱</div><div class="card-title">绑定渠道</div></div><div class="card-content">微信小程序<br><strong style="color: var(--accent-cyan);">「无畏契约官方助手」</strong></div></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div class="alert-box danger"><div class="alert-icon">⚠️</div><div class="alert-content"><div class="alert-title">关键提醒</div><div class="alert-text"><strong>必须当天绑定当天的门票</strong>，提前绑定会显示信息错误</div></div></div>
+            <h3 style="font-size: 18px; color: var(--accent); margin-bottom: 10px;">绑定流程</h3>
+            <div class="list-item"><div class="list-icon green">1</div><div class="list-text"><div class="list-title">打开「无畏契约官方助手」</div></div></div>
+            <div class="list-item"><div class="list-icon green">2</div><div class="list-text"><div class="list-title">绑定当天门票</div></div></div>
+            <div class="list-item"><div class="list-icon green">3</div><div class="list-text"><div class="list-title">奖励直接发放至游戏账号</div></div></div>
+            <div class="list-item"><div class="list-icon cyan">4</div><div class="list-text"><div class="list-title">中奖后每局地图休息时间到前台领凭证</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 16: 拍手环节 -->
+    <div class="slide" id="slide-16">
+      <div class="bg-grid"></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">选手互动</span></div><div class="page-indicator">17 / 25</div></div>
+      <div class="content-area-full">
+        <div class="section-tag"><span class="tag-number">15</span><span class="tag-text">High-Five Session</span></div>
+        <h2 class="main-title" style="margin-bottom: 30px;">拍手环节（最受欢迎）</h2>
+        <div class="content-area" style="gap: 40px;">
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div class="info-card" style="border-color: #ef4444;"><div class="card-header"><div class="card-icon" style="background: rgba(239, 68, 68, 0.2);">⚠️</div><div class="card-title">资格要求</div></div><div class="card-content"><strong style="color: #ef4444; font-size: 20px;">仅内场观众可参与</strong><br>杭州站及以后赛事</div></div>
+            <h3 style="font-size: 18px; color: var(--accent); margin-bottom: 10px;">排队时间</h3>
+            <div class="info-card"><div class="card-header"><div class="card-icon">1️⃣</div><div class="card-title">第一场比赛</div></div><div class="card-content">提前 <strong style="color: var(--accent);">0.5-1小时</strong> 排队</div></div>
+            <div class="info-card cyan"><div class="card-header"><div class="card-icon" style="background: rgba(0, 212, 255, 0.2);">2️⃣</div><div class="card-title">第二场比赛</div></div><div class="card-content">第一场<strong style="color: var(--accent-cyan);">中场休息时</strong>去排队</div></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div class="alert-box danger"><div class="alert-icon">🚨</div><div class="alert-content"><div class="alert-title">重大避坑</div><div class="alert-text"><strong>盖了互动章也不一定能拍到选手！</strong><br>部分场次会在比赛未完全结束时就开始排队，等比赛结束再去入口可能已堵死</div></div></div>
+            <div class="alert-box warning"><div class="alert-icon">⚠️</div><div class="alert-content"><div class="alert-title">正确做法</div><div class="alert-text">全程关注拍手区动态，<strong>不要等比赛完全结束再行动</strong></div></div></div>
+            <div class="info-card green"><div class="card-header"><div class="card-icon" style="background: rgba(34, 197, 94, 0.2);">🏆</div><div class="card-title">最优方案</div></div><div class="card-content">同时拥有<strong style="color: var(--accent-green);">内场票 + 超凡带入</strong><br>提前进场抢占前排位置</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 17: 签名互动 -->
+    <div class="slide" id="slide-17">
+      <div class="bg-grid"></div><div class="corner-glow"></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">签名互动</span></div><div class="page-indicator">18 / 25</div></div>
+      <div class="content-area-full">
+        <div class="section-tag"><span class="tag-number">16</span><span class="tag-text">Autograph Session</span></div>
+        <h2 class="main-title" style="margin-bottom: 30px;">签名与赛后互动</h2>
+        <div class="content-area" style="gap: 40px;">
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div class="alert-box info"><div class="alert-icon">📌</div><div class="alert-content"><div class="alert-title">互动资格</div><div class="alert-text"><strong>只有获胜的队伍</strong>会进行赛后互动</div></div></div>
+            <h3 style="font-size: 18px; color: var(--accent); margin-bottom: 10px;">签名获取方式</h3>
+            <div class="info-card"><div class="card-header"><div class="card-icon">📺</div><div class="card-title">常规赛</div></div><div class="card-content" style="color: var(--text-secondary);">基本无签名环节</div></div>
+            <div class="info-card cyan"><div class="card-header"><div class="card-icon" style="background: rgba(0, 212, 255, 0.2);">🏆</div><div class="card-title">季后赛</div></div><div class="card-content">内场观众<strong style="color: var(--accent-cyan);">随机抽取</strong><br>与是否优先进场无关</div></div>
+            <div class="info-card purple"><div class="card-header"><div class="card-icon" style="background: rgba(168, 85, 247, 0.2);">⭐</div><div class="card-title">高积分签售</div></div><div class="card-content">当日积分排名前几十位<br>会收到<strong style="color: var(--accent-purple);">短信通知</strong></div></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <h3 style="font-size: 18px; color: var(--accent); margin-bottom: 10px;">签名注意事项</h3>
+            <div class="list-item"><div class="list-icon green">✓</div><div class="list-text"><div class="list-title">需自行携带笔</div></div></div>
+            <div class="list-item"><div class="list-icon red">✗</div><div class="list-text"><div class="list-title">不签拍立得和非官方外设</div></div></div>
+            <div class="list-item"><div class="list-icon cyan">?</div><div class="list-text"><div class="list-title">部分选手允许拍立得合影</div><div class="list-desc">以现场情况为准</div></div></div>
+            <div class="alert-box danger"><div class="alert-icon">🚫</div><div class="alert-content"><div class="alert-title">礼物政策</div><div class="alert-text">严格禁止向选手赠送任何礼物（包括手写信）<br>唯一例外：选手生日当天俱乐部可能开放专门通道</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 18: 赛后互动最佳实践 -->
+    <div class="slide" id="slide-18">
+      <div class="bg-grid"></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">互动实践</span></div><div class="page-indicator">19 / 25</div></div>
+      <div class="content-area-full">
+        <div class="section-tag"><span class="tag-number">17</span><span class="tag-text">Best Practice</span></div>
+        <h2 class="main-title" style="margin-bottom: 30px;">赛后互动最佳实践</h2>
+        <div class="content-area" style="gap: 40px;">
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <h3 style="font-size: 18px; color: var(--accent); margin-bottom: 10px;">互动时机</h3>
+            <div class="info-card green" style="border-color: var(--accent-green);"><div class="card-header"><div class="card-icon" style="background: rgba(34, 197, 94, 0.2);">⏰</div><div class="card-title">最佳时机</div></div><div class="card-content">在队伍拿到<strong style="color: var(--accent-green); font-size: 24px;">10分</strong>（即将获胜）时<br>就可以前往互动区等候</div></div>
+            <div class="info-card"><div class="card-header"><div class="card-icon">📍</div><div class="card-title">互动区位置</div></div><div class="card-content">可询问现场工作人员</div></div>
+            <div class="info-card cyan"><div class="card-header"><div class="card-icon" style="background: rgba(0, 212, 255, 0.2);">🎫</div><div class="card-title">中奖者注意</div></div><div class="card-content"><strong style="color: var(--accent-cyan);">无需排队</strong><br>出示手环即可直接进入</div></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <h3 style="font-size: 18px; color: var(--accent); margin-bottom: 10px;">携带物品建议</h3>
+            <div class="alert-box info"><div class="alert-icon">💡</div><div class="alert-content"><div class="alert-title">建议仅携带</div><div class="alert-text">互动时间很短，建议仅携带<strong>笔、纸和手机</strong></div></div></div>
+            <h3 style="font-size: 18px; color: var(--accent); margin-bottom: 10px;">互动流程</h3>
+            <div class="timeline">
+              <div class="timeline-item"><div class="timeline-time">10分时</div><div class="timeline-title">前往互动区</div><div class="timeline-desc">询问工作人员位置</div></div>
+              <div class="timeline-item"><div class="timeline-time">比赛结束</div><div class="timeline-title">等待队伍入场</div><div class="timeline-desc">保持耐心</div></div>
+              <div class="timeline-item"><div class="timeline-time">互动中</div><div class="timeline-title">文明互动</div><div class="timeline-desc">不强行合影、不递礼物</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 19: 比赛时间 -->
+    <div class="slide" id="slide-19">
+      <div class="bg-grid"></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">时间参考</span></div><div class="page-indicator">20 / 25</div></div>
+      <div class="content-area-full">
+        <div class="section-tag"><span class="tag-number">18</span><span class="tag-text">Schedule Reference</span></div>
+        <h2 class="main-title" style="margin-bottom: 30px;">比赛时间参考</h2>
+        <div class="content-area" style="gap: 40px;">
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div class="info-card"><div class="card-header"><div class="card-icon">🏆</div><div class="card-title">第一场 BO3</div></div><div style="font-size: 28px; font-weight: 700; color: var(--accent);">17:00 开始</div></div>
+            <div class="info-card cyan"><div class="card-header"><div class="card-icon" style="background: rgba(0, 212, 255, 0.2);">📊</div><div class="card-title">赛程推算</div></div><div class="card-content">第一场2:0结束 → 第二场约<strong style="color: var(--accent-cyan);">19:00</strong><br>第一场2:1结束 → 第二场约<strong style="color: var(--accent-cyan);">19:30</strong></div></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <table class="data-table"><thead><tr><th>赛果</th><th>第二场结束时间</th></tr></thead>
+              <tbody>
+                <tr><td>第二场 2:0</td><td class="highlight">约 22:10</td></tr>
+                <tr><td>第二场 2:1</td><td class="highlight">约 23:00</td></tr>
+                <tr><td>决赛日 BO5</td><td class="highlight">可能持续到半夜</td></tr>
+              </tbody>
+            </table>
+            <div class="alert-box warning"><div class="alert-icon">🚗</div><div class="alert-content"><div class="alert-title">赶车建议</div><div class="alert-text">提前<strong>0.5-1小时</strong>离场，避免错过末班车/末班地铁</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 20: 座位选择 -->
+    <div class="slide" id="slide-20">
+      <div class="bg-grid"></div><div class="corner-glow"></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">座位选择</span></div><div class="page-indicator">21 / 25</div></div>
+      <div class="content-area-full">
+        <div class="section-tag"><span class="tag-number">19</span><span class="tag-text">Seat Selection</span></div>
+        <h2 class="main-title" style="margin-bottom: 30px;">座位选择指南</h2>
+        <div class="content-area" style="gap: 40px;">
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div class="info-card"><div class="card-header"><div class="card-icon">🏢</div><div class="card-title">小场馆常规赛</div></div><div class="card-content">赛程表<strong style="color: var(--text-primary);">左侧队伍</strong>对应<strong style="color: var(--accent);">A区</strong></div></div>
+            <div class="info-card cyan"><div class="card-header"><div class="card-icon" style="background: rgba(0, 212, 255, 0.2);">🏟️</div><div class="card-title">大场馆/四面屏</div></div><div class="card-content">无法准确判断队伍方向<br><strong style="color: var(--accent-cyan);">只能靠猜</strong></div></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <h3 style="font-size: 18px; color: var(--accent); margin-bottom: 10px;">座位建议</h3>
+            <div class="list-item"><div class="list-icon green">✓</div><div class="list-text"><div class="list-title">内场前排</div><div class="list-desc">观看效果最好，但价格较高</div></div></div>
+            <div class="list-item"><div class="list-icon green">✓</div><div class="list-text"><div class="list-title">看台中央</div><div class="list-desc">视角较佳，适合观看整体战局</div></div></div>
+            <div class="list-item"><div class="list-icon blue">?</div><div class="list-text"><div class="list-title">新手建议</div><div class="list-desc">先买看台确认位置，下次再优化</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 21: 场馆规则 -->
+    <div class="slide" id="slide-21">
+      <div class="bg-grid"></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">场馆规则</span></div><div class="page-indicator">22 / 25</div></div>
+      <div class="content-area-full">
+        <div class="section-tag"><span class="tag-number">20</span><span class="tag-text">Venue Rules</span></div>
+        <h2 class="main-title" style="margin-bottom: 30px;">场馆内规则</h2>
+        <div class="content-thirds">
+          <div class="info-card" style="border-color: #ef4444;"><div class="card-header"><div class="card-icon" style="background: rgba(239, 68, 68, 0.2);">🚫</div><div class="card-title">通道限制</div></div><div class="card-content">比赛期间不得靠近通道<br><strong style="color: #ef4444;">看台下方通道禁止站人</strong></div></div>
+          <div class="info-card" style="border-color: var(--accent-purple);"><div class="card-header"><div class="card-icon" style="background: rgba(168, 85, 247, 0.2);">🚭</div><div class="card-title">禁烟规定</div></div><div class="card-content">场馆内<strong style="color: var(--accent-purple);">全面禁烟</strong><br>部分场馆设有专门吸烟区</div></div>
+          <div class="info-card cyan"><div class="card-header"><div class="card-icon" style="background: rgba(0, 212, 255, 0.2);">📷</div><div class="card-title">摄像规定</div></div><div class="card-content">摄像机主要拍摄内场<br><strong style="color: var(--accent-cyan);">看台观众上镜概率极低</strong></div></div>
+        </div>
+        <div class="alert-box info" style="margin-top: 30px;"><div class="alert-icon">💡</div><div class="alert-content"><div class="alert-title">老手建议</div><div class="alert-text">遵守场馆规则不仅关乎个人安全，也影响其他观众的观赛体验</div></div></div>
+      </div>
+    </div>
+
+    <!-- SLIDE 22: 速查清单 -->
+    <div class="slide" id="slide-22">
+      <div class="bg-grid"></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">速查清单</span></div><div class="page-indicator">23 / 25</div></div>
+      <div class="content-area-full">
+        <div class="section-tag"><span class="tag-number">21</span><span class="tag-text">Checklist</span></div>
+        <h2 class="main-title" style="margin-bottom: 30px;">出发前速查清单</h2>
+        <div class="content-quad">
+          <div class="info-card green"><div class="card-header"><div class="card-icon green">✓</div><div class="card-title">身份证</div></div><div class="card-content">核心证件，必带</div></div>
+          <div class="info-card green"><div class="card-header"><div class="card-icon green">✓</div><div class="card-title">门票</div></div><div class="card-content">确认已购票成功</div></div>
+          <div class="info-card green"><div class="card-header"><div class="card-icon green">✓</div><div class="card-title">充电宝</div></div><div class="card-content">手机电量保障</div></div>
+          <div class="info-card green"><div class="card-header"><div class="card-icon green">✓</div><div class="card-title">空水杯</div></div><div class="card-content">场馆内有饮水机</div></div>
+        </div>
+        <div class="content-quad" style="margin-top: 25px;">
+          <div class="info-card green"><div class="card-header"><div class="card-icon green">✓</div><div class="card-title">笔</div></div><div class="card-content">用于签名环节</div></div>
+          <div class="info-card green"><div class="card-header"><div class="card-icon green">✓</div><div class="card-title">纸巾/湿巾</div></div><div class="card-content">便携装</div></div>
+          <div class="info-card green"><div class="card-header"><div class="card-icon green">✓</div><div class="card-title">背包</div></div><div class="card-content">装周边和应援物</div></div>
+          <div class="info-card cyan"><div class="card-header"><div class="card-icon cyan">📱</div><div class="card-title">官方助手</div></div><div class="card-content">绑定赋能掉落</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 23: 核心避坑 -->
+    <div class="slide" id="slide-23">
+      <div class="bg-grid"></div><div class="corner-glow"></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">避坑要点</span></div><div class="page-indicator">24 / 25</div></div>
+      <div class="content-area-full">
+        <div class="section-tag"><span class="tag-number">22</span><span class="tag-text">Key Warnings</span></div>
+        <h2 class="main-title" style="margin-bottom: 30px;">核心避坑要点</h2>
+        <div class="content-area" style="gap: 30px;">
+          <div style="display: flex; flex-direction: column; gap: 15px;">
+            <div class="alert-box danger"><div class="alert-icon">🚫</div><div class="alert-content"><div class="alert-title">强实名制骗局</div><div class="alert-text">门票不可转让，票贩子全是骗子</div></div></div>
+            <div class="alert-box danger"><div class="alert-icon">🚫</div><div class="alert-content"><div class="alert-title">看台升内场骗局</div><div class="alert-text">看台与内场物理隔离，违规进入会被永久拉黑</div></div></div>
+            <div class="alert-box danger"><div class="alert-icon">🚫</div><div class="alert-content"><div class="alert-title">多账号抢票</div><div class="alert-text">会被系统判定异常并屏蔽</div></div></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 15px;">
+            <div class="alert-box warning"><div class="alert-icon">⚠️</div><div class="alert-content"><div class="alert-title">拍手章不等于能拍手</div><div class="alert-text">盖了章也可能排不到，要关注排队动态</div></div></div>
+            <div class="alert-box warning"><div class="alert-icon">⚠️</div><div class="alert-content"><div class="alert-title">赋能绑定时间</div><div class="alert-text">必须当天绑定当天的门票，提前绑定会失败</div></div></div>
+            <div class="alert-box warning"><div class="alert-icon">⚠️</div><div class="alert-content"><div class="alert-title">礼物政策</div><div class="alert-text">选手私自收礼物会被联盟罚款，禁止送任何礼物</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 24: 结尾页 -->
+    <div class="slide" id="slide-24">
+      <div class="bg-grid"></div><div class="corner-glow"></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="page-indicator">25 / 25</div></div>
+      <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10; text-align: center;">
+        <div class="section-tag" style="justify-content: center; margin-bottom: 20px;"><div class="tag-line"></div><span class="tag-text">Thank You</span><div class="tag-line"></div></div>
+        <h2 class="main-title-xl" style="text-align: center; margin-bottom: 20px;">祝您观赛愉快！</h2>
+        <p style="font-size: 18px; color: var(--text-secondary);">期待与您在赛场相见</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Quick Navigation Bar -->
+<div style="position: fixed; top: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; align-items: center; z-index: 1000; background: rgba(26, 26, 26, 0.95); padding: 10px 20px; border-radius: 10px; border: 1px solid var(--border-color); backdrop-filter: blur(10px);">
+  <button onclick="goToSlide(0)" style="padding: 8px 16px; background: var(--accent); border: none; color: #000; font-weight: 700; border-radius: 6px; cursor: pointer; font-size: 13px;">🏠 首页</button>
+  <button onclick="goToSlide(1)" style="padding: 8px 16px; background: var(--bg-card); border: 1px solid var(--accent); color: var(--accent); border-radius: 6px; cursor: pointer; font-size: 13px;">📋 目录</button>
+  <div style="width: 1px; height: 24px; background: var(--border-color); margin: 0 5px;"></div>
+  <span style="color: var(--text-secondary); font-size: 13px;">跳转到:</span>
+  <select id="pageJump" onchange="goToSlide(parseInt(this.value) - 1)" style="padding: 8px 12px; background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-primary); border-radius: 6px; cursor: pointer; font-size: 13px; min-width: 200px;">
+    <option value="1">01 - 封面</option>
+    <option value="2">02 - 目录</option>
+    <option value="3">03 - 观赛决策(赛事日历)</option>
+    <option value="4">04 - 观赛决策(权益体系)</option>
+    <option value="5">05 - 观赛决策(信息渠道)</option>
+    <option value="6">06 - 购票攻略(官方渠道)</option>
+    <option value="7">07 - 购票攻略(购票规则)</option>
+    <option value="8">08 - 购票攻略(抢票技巧)</option>
+    <option value="9">09 - 购票攻略(票价升舱)</option>
+    <option value="10">10 - 行前准备(必带清单)</option>
+    <option value="11">11 - 行前准备(禁止携带)</option>
+    <option value="12">12 - 行前准备(入场流程)</option>
+    <option value="13">13 - 行前准备(特殊情况)</option>
+    <option value="14">14 - 现场体验(应援礼)</option>
+    <option value="15">15 - 现场体验(周边餐饮)</option>
+    <option value="16">16 - 现场体验(赋能掉落)</option>
+    <option value="17">17 - 选手互动(拍手环节)</option>
+    <option value="18">18 - 选手互动(签名互动)</option>
+    <option value="19">19 - 选手互动(最佳实践)</option>
+    <option value="20">20 - 实用参考(比赛时间)</option>
+    <option value="21">21 - 实用参考(座位选择)</option>
+    <option value="22">22 - 实用参考(场馆规则)</option>
+    <option value="23">23 - 速查清单</option>
+    <option value="24">24 - 核心避坑</option>
+    <option value="25">25 - 结尾致谢</option>
+  </select>
+</div>
+
+<!-- Navigation Controls -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 15px; align-items: center; z-index: 1000;">
+  <button onclick="prevSlide()" style="padding: 10px 20px; background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-primary); border-radius: 6px; cursor: pointer;">← 上一页</button>
+  <button onclick="nextSlide()" style="padding: 10px 20px; background: var(--accent); border: none; color: #000; font-weight: 700; border-radius: 6px; cursor: pointer;">下一页 →</button>
+  <span id="pageDisplay" style="color: var(--text-secondary); font-size: 14px; font-family: 'JetBrains Mono', monospace;">1 / 25</span>
+</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+let currentSlide = 0;
+const totalSlides = slides.length;
+
+function showSlide(index) {
+  if (index < 0) index = 0;
+  if (index >= totalSlides) index = totalSlides - 1;
+  slides.forEach((slide, i) => {
+    slide.classList.remove('active', 'visible');
+    if (i === index) slide.classList.add('active', 'visible');
+  });
+  currentSlide = index;
+  document.getElementById('pageDisplay').textContent = `${index + 1} / 25`;
+}
+
+function goToSlide(index) {
+  showSlide(index);
+  // Sync dropdown with current page
+  const dropdown = document.getElementById('pageJump');
+  if (dropdown) dropdown.value = index + 1;
+}
+
+function nextSlide() { showSlide(currentSlide + 1); }
+function prevSlide() { showSlide(currentSlide - 1); }
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); nextSlide(); }
+  if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
+});
+
+// Add click handlers to all clickable cards
+document.querySelectorAll('.info-card.clickable').forEach(card => {
+  card.addEventListener('click', () => {
+    const target = card.getAttribute('data-goto');
+    if (target) goToSlide(parseInt(target));
+  });
+});
+</script>
+</body>
+</html>

@@ -146,6 +146,20 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
   #wali-rotate-tip { display: block; position: fixed; bottom: 74px; left: 50%; transform: translateX(-50%); z-index: 1500; background: rgba(26,26,26,.92); color: #ccc; border: 1px solid #2a2a2a; padding: 7px 14px; border-radius: 999px; font-size: 12px; white-space: nowrap; }
   #wali-rotate-tip b { color: #ff4655; }
 }
+
+/* === v3: fluid portrait mode + compact mobile chrome (2026-11-17) === */
+html.flow .deck-stage { left: 0; top: 0; width: 100%; height: 100%; transform: none !important; }
+html.flow .slide { width: 100%; height: 100%; overflow-y: auto; overflow-x: hidden; padding: 128px 20px 130px; zoom: 0.64; align-items: stretch; }
+html.flow .content-quad, html.flow .content-thirds, html.flow .two-col { grid-template-columns: 1fr 1fr !important; }
+html.flow [style*="repeat(3, 1fr)"], html.flow [style*="repeat(4, 1fr)"] { grid-template-columns: 1fr 1fr !important; }
+html.flow #wali-rotate-tip { display: none !important; }
+@media (max-width: 860px) {
+  #wali-quicknav { top: 10px !important; left: 8px !important; right: 8px !important; transform: none !important; flex-wrap: wrap; justify-content: center; row-gap: 6px; padding: 8px 10px !important; }
+  #wali-quicknav select { min-width: 0 !important; flex: 1 1 140px; }
+  #wali-quicknav .wb-slogan { display: none; }
+  #wali-controls { bottom: 10px !important; gap: 8px !important; }
+  #wali-controls button { padding: 9px 14px !important; }
+}
 </style>
 </head>
 <body>
@@ -167,7 +181,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
           <h2 class="main-title-xl animate-in" style="color: var(--accent); margin-top: 10px;">VCT CN</h2>
           <h3 class="main-title-xl animate-in" style="margin-top: 10px;">线下观赛</h3>
 <div class="wali-cover-brand animate-in delay-1">瓦力喵 <b>WALI GAMING</b> 出品 · <span class="r">台下亦是主场</span></div>
-<a class="wali-news-btn animate-in delay-2" href="https://muse.ai/s/space-txs6xg4fqrxkxor/3sCImOCobOBEFyXcBRKCi23ivzgRvrDSWCWBlxeiQ-k" target="_blank" rel="noopener">📰 瓦力喵每日资讯 · 早晚两档 →</a>
+<a class="wali-news-btn animate-in delay-2" href="news.html">📰 瓦力喵每日资讯 · 早晚两档 →</a>
         </div>
         <div style="display: flex; flex-direction: column; justify-content: center;">
           <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
@@ -718,7 +732,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
         <h2 class="main-title-xl" style="text-align: center; margin-bottom: 20px;">祝您观赛愉快！</h2>
         <p style="font-size: 18px; color: var(--text-secondary);">期待与您在赛场相见</p>
 <p style="font-size: 17px; color: var(--text-secondary); margin-top: 26px;">抖音 / 小红书同名搜索「瓦力喵」 · 台下亦是主场</p>
-<a class="wali-news-btn" href="https://muse.ai/s/space-txs6xg4fqrxkxor/3sCImOCobOBEFyXcBRKCi23ivzgRvrDSWCWBlxeiQ-k" target="_blank" rel="noopener">📰 瓦力喵每日资讯 · 每天早 8:00 / 晚 18:00 →</a>
+<a class="wali-news-btn" href="news.html">📰 瓦力喵每日资讯 · 每天早 8:00 / 晚 18:00 →</a>
       </div>
     </div>
 
@@ -726,11 +740,11 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
 </div>
 
 <!-- Quick Navigation Bar -->
-<div style="position: fixed; top: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; align-items: center; z-index: 1000; background: rgba(26, 26, 26, 0.95); padding: 10px 20px; border-radius: 10px; border: 1px solid var(--border-color); backdrop-filter: blur(10px);">
+<div id="wali-quicknav" style="position: fixed; top: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; align-items: center; z-index: 1000; background: rgba(26, 26, 26, 0.95); padding: 10px 20px; border-radius: 10px; border: 1px solid var(--border-color); backdrop-filter: blur(10px);">
   <span class="wali-brand"><span class="wb-badge">W</span>瓦力喵 <span class="wb-slogan">台下亦是主场</span></span>
   <button onclick="goToSlide(0)" style="padding: 8px 16px; background: var(--accent); border: none; color: #000; font-weight: 700; border-radius: 6px; cursor: pointer; font-size: 13px;">🏠 首页</button>
   <button onclick="goToSlide(1)" style="padding: 8px 16px; background: var(--bg-card); border: 1px solid var(--accent); color: var(--accent); border-radius: 6px; cursor: pointer; font-size: 13px;">📋 目录</button>
-  <a href="https://muse.ai/s/space-txs6xg4fqrxkxor/3sCImOCobOBEFyXcBRKCi23ivzgRvrDSWCWBlxeiQ-k" target="_blank" rel="noopener" style="padding: 8px 16px; background: #ff4655; border: none; color: #fff; font-weight: 700; border-radius: 6px; font-size: 13px; text-decoration: none;">📰 每日资讯</a>
+  <a href="news.html" style="padding: 8px 16px; background: #ff4655; border: none; color: #fff; font-weight: 700; border-radius: 6px; font-size: 13px; text-decoration: none;">📰 每日资讯</a>
   <div style="width: 1px; height: 24px; background: var(--border-color); margin: 0 5px;"></div>
   <span style="color: var(--text-secondary); font-size: 13px;">跳转到:</span>
   <select id="pageJump" onchange="goToSlide(parseInt(this.value) - 1)" style="padding: 8px 12px; background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-primary); border-radius: 6px; cursor: pointer; font-size: 13px; min-width: 200px;">
@@ -763,7 +777,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
 </div>
 
 <!-- Navigation Controls -->
-<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 15px; align-items: center; z-index: 1000;">
+<div id="wali-controls" style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 15px; align-items: center; z-index: 1000;">
   <button onclick="prevSlide()" style="padding: 10px 20px; background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-primary); border-radius: 6px; cursor: pointer;">← 上一页</button>
   <button onclick="nextSlide()" style="padding: 10px 20px; background: var(--accent); border: none; color: #000; font-weight: 700; border-radius: 6px; cursor: pointer;">下一页 →</button>
   <span id="pageDisplay" style="color: var(--text-secondary); font-size: 14px; font-family: 'JetBrains Mono', monospace;">1 / 25</span>
@@ -776,10 +790,19 @@ const totalSlides = slides.length;
 const stage = document.querySelector('.deck-stage');
 
 /* Fit the fixed 1920x1080 stage to any screen (phones included) */
+function isFlowMode() {
+  return window.matchMedia('(max-width: 860px) and (orientation: portrait)').matches;
+}
 function fitStage() {
   if (!stage) return;
-  const s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
-  stage.style.transform = `translate(-50%, -50%) scale(${s})`;
+  if (isFlowMode()) {
+    document.documentElement.classList.add('flow');
+    stage.style.transform = 'none';
+  } else {
+    document.documentElement.classList.remove('flow');
+    const s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+    stage.style.transform = `translate(-50%, -50%) scale(${s})`;
+  }
 }
 window.addEventListener('resize', fitStage);
 window.addEventListener('orientationchange', fitStage);
@@ -793,6 +816,7 @@ function showSlide(index) {
     if (i === index) slide.classList.add('active', 'visible');
   });
   currentSlide = index;
+  if (document.documentElement.classList.contains('flow')) { const a = slides[index]; if (a) a.scrollTop = 0; }
   document.getElementById('pageDisplay').textContent = `${index + 1} / ${totalSlides}`;
   const dropdown = document.getElementById('pageJump');
   if (dropdown) dropdown.value = index + 1;

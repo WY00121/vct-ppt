@@ -3,7 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>无畏契约VCT CN线下观赛完全手册（2026实战版）</title>
+<title>无畏契约VCT CN线下观赛完全手册（2026实战版）｜瓦力喵 WALI GAMING</title>
+
+<meta name="description" content="瓦力喵 WALI GAMING 出品：无畏契约 VCT CN 线下观赛完全手册——购票、行前、现场、互动全攻略，附瓦力喵每日资讯入口。台下亦是主场。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="无畏契约 VCT CN 线下观赛完全手册｜瓦力喵 WALI GAMING">
+<meta property="og:description" content="购票攻略 · 行前准备 · 现场体验 · 选手互动 · 速查避坑。台下亦是主场。">
+<meta property="og:url" content="https://wy00121.github.io/vct-ppt/">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%23FF4655'/><text x='32' y='44' font-family='Arial Black,Arial' font-size='34' font-weight='900' fill='white' text-anchor='middle'>W</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=JetBrains+Mono:wght@400;700&family=Archivo+Black&display=swap" rel="stylesheet">
 <style>
@@ -12,9 +20,9 @@
   --bg-gradient: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 50%, #0d0d0d 100%);
   --bg-card: #1a1a1a;
   --bg-card-alt: #1a1d27;
-  --accent: #ff6b00;
-  --accent-light: #ff8c4a;
-  --accent-glow: rgba(255, 107, 0, 0.4);
+  --accent: #ff4655;
+  --accent-light: #ff7585;
+  --accent-glow: rgba(255, 70, 85, 0.4);
   --accent-cyan: #00d4ff;
   --accent-blue: #3b82f6;
   --accent-green: #22c55e;
@@ -27,21 +35,21 @@
 html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-primary); font-family: 'Noto Sans SC', sans-serif; }
 .deck-viewport { position: fixed; inset: 0; overflow: hidden; background: var(--bg-gradient); }
 .deck-stage { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 1920px; height: 1080px; transform-origin: center center; }
-.slide { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--bg-gradient); background-image: url('https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/ccv2%2F2026-06-01%2FMiniMax-M2.7%2F2045124398968476328%2Fcdcf78f931b5e5c956b2e3fa94d7b93db2e49fbd6a7a46a72f886c792dfd9acc..jpeg?Expires=1780413237&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=iwXyJbUuegTcj%2BbwyNTwqFsy3bo%3D'); background-size: cover; background-position: center; display: flex; flex-direction: column; padding: 60px 100px 80px 100px; visibility: hidden; opacity: 0; pointer-events: none; }
+.slide { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--bg-gradient); background-size: cover; background-position: center; display: flex; flex-direction: column; padding: 60px 100px 80px 100px; visibility: hidden; opacity: 0; pointer-events: none; }
 .slide::before { content: ''; position: absolute; inset: 0; background: rgba(13, 13, 13, 0.3); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); z-index: 0; }
 .slide.active, .slide.visible { visibility: visible; opacity: 1; pointer-events: auto; z-index: 1; }
 .slide > * { position: relative; z-index: 1; }
-.bg-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,107,53,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,107,53,0.03) 1px, transparent 1px); background-size: 40px 40px; pointer-events: none; }
+.bg-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,70,85,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,70,85,0.03) 1px, transparent 1px); background-size: 40px 40px; pointer-events: none; }
 .corner-glow { position: absolute; bottom: 0; left: 0; width: 400px; height: 400px; background: radial-gradient(circle at bottom left, var(--accent-glow) 0%, transparent 70%); opacity: 0.3; }
 .corner-glow-right { position: absolute; top: 0; right: 0; width: 400px; height: 400px; background: radial-gradient(circle at top right, rgba(0, 212, 255, 0.2) 0%, transparent 70%); opacity: 0.3; }
 .header-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; position: relative; z-index: 10; }
-.logo-area { display: none; align-items: center; gap: 20px; }
+.logo-area { display: flex; align-items: center; gap: 20px; }
 .logo-badge { width: 50px; height: 50px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); display: flex; align-items: center; justify-content: center; font-family: 'Archivo Black', sans-serif; font-size: 24px; color: #000; clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px); }
 .logo-text { font-size: 20px; font-weight: 700; color: var(--text-primary); }
 .logo-text span { color: var(--accent); }
 .nav-tags { display: flex; gap: 15px; }
 .nav-tag { padding: 8px 16px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 6px; font-size: 13px; color: var(--text-secondary); transition: all 0.3s; }
-.nav-tag.active { border-color: var(--accent); color: var(--accent); background: rgba(255, 107, 0, 0.1); }
+.nav-tag.active { border-color: var(--accent); color: var(--accent); background: rgba(255, 70, 85, 0.1); }
 .page-indicator { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--text-secondary); }
 .section-tag { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 12px; }
 .tag-number { font-family: 'Archivo Black', sans-serif; font-size: 60px; color: var(--accent); opacity: 0.2; line-height: 1; }
@@ -57,20 +65,20 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
 .content-quad { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; flex: 1; }
 .info-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 10px; padding: 16px; position: relative; overflow: hidden; transition: all 0.3s; }
 .info-card.clickable { cursor: pointer; }
-.info-card.clickable:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 20px rgba(255, 107, 0, 0.2); }
+.info-card.clickable:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 20px rgba(255, 70, 85, 0.2); }
 .info-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--accent); }
 .info-card.blue::before, .info-card.cyan::before { background: var(--accent-cyan); }
 .info-card.green::before { background: var(--accent-green); }
 .info-card.purple::before { background: var(--accent-purple); }
 .info-card.blue-accent::before { background: var(--accent-blue); }
 .card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-.card-icon { width: 32px; height: 32px; background: rgba(255, 107, 0, 0.1); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+.card-icon { width: 32px; height: 32px; background: rgba(255, 70, 85, 0.1); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; }
 .card-title { font-size: 15px; font-weight: 700; color: var(--text-primary); }
 .card-content { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
 .card-highlight { position: absolute; right: 12px; top: 12px; font-family: 'JetBrains Mono', monospace; font-size: 24px; font-weight: 700; color: var(--accent); opacity: 0.1; }
 .list-item { display: flex; align-items: flex-start; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--border-color); }
 .list-item:last-child { border-bottom: none; }
-.list-icon { width: 28px; height: 28px; background: rgba(255, 107, 0, 0.1); border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+.list-icon { width: 28px; height: 28px; background: rgba(255, 70, 85, 0.1); border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
 .list-icon.green { background: rgba(34, 197, 94, 0.1); }
 .list-icon.red { background: rgba(239, 68, 68, 0.1); }
 .list-icon.blue { background: rgba(59, 130, 246, 0.1); }
@@ -81,7 +89,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
 .data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
 .data-table th { background: var(--bg-card); padding: 10px 14px; text-align: left; font-weight: 700; color: var(--accent); border-bottom: 2px solid var(--accent); text-transform: uppercase; letter-spacing: 1px; font-size: 11px; }
 .data-table td { padding: 10px 14px; border-bottom: 1px solid var(--border-color); color: var(--text-secondary); }
-.data-table tr:hover td { background: rgba(255, 107, 0, 0.05); }
+.data-table tr:hover td { background: rgba(255, 70, 85, 0.05); }
 .data-table .highlight { color: var(--text-primary); font-weight: 700; }
 .stat-box { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; padding: 14px; text-align: center; }
 .stat-number { font-family: 'JetBrains Mono', monospace; font-size: 28px; font-weight: 700; color: var(--accent); line-height: 1; }
@@ -123,9 +131,25 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
 .delay-5 { animation-delay: 0.5s; }
 @media print { html, body { width: 1920px; height: auto; overflow: visible; background: #fff; } .deck-viewport { position: static; overflow: visible; background: #fff; } .deck-stage { position: static; width: auto; height: auto; transform: none !important; } .slide { position: relative; display: block !important; visibility: visible !important; opacity: 1 !important; width: 1920px; height: 1080px; break-after: page; page-break-after: always; } .deck-controls { display: none !important; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.2s !important; } }
+
+/* === WALI GAMING v2 additions (2026-11-17) === */
+#wali-progress { position: fixed; top: 0; left: 0; height: 4px; background: #ff4655; z-index: 2000; width: 4%; transition: width .25s ease; }
+.wali-brand { display: inline-flex; align-items: center; gap: 8px; font-weight: 900; letter-spacing: .5px; color: #fff; font-size: 14px; white-space: nowrap; }
+.wali-brand .wb-badge { background: #ff4655; color: #fff; padding: 3px 8px; clip-path: polygon(5px 0,100% 0,100% calc(100% - 5px),calc(100% - 5px) 100%,0 100%,0 5px); font-family: 'Archivo Black', sans-serif; font-size: 13px; }
+.wali-brand .wb-slogan { color: #ff7585; font-weight: 700; }
+.wali-news-btn { display: inline-block; margin-top: 26px; padding: 14px 30px; background: #ff4655; color: #fff !important; font-weight: 900; font-size: 19px; text-decoration: none; clip-path: polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px); }
+.wali-cover-brand { margin-top: 34px; font-size: 20px; color: #888; letter-spacing: 2px; }
+.wali-cover-brand b { color: #fff; } .wali-cover-brand .r { color: #ff4655; font-weight: 900; }
+
+#wali-rotate-tip { display: none; }
+@media (orientation: portrait) and (max-width: 600px) {
+  #wali-rotate-tip { display: block; position: fixed; bottom: 74px; left: 50%; transform: translateX(-50%); z-index: 1500; background: rgba(26,26,26,.92); color: #ccc; border: 1px solid #2a2a2a; padding: 7px 14px; border-radius: 999px; font-size: 12px; white-space: nowrap; }
+  #wali-rotate-tip b { color: #ff4655; }
+}
 </style>
 </head>
 <body>
+<div id=\"wali-progress\"></div>
 <div class="deck-viewport">
   <div class="deck-stage">
 
@@ -134,7 +158,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
       <div class="bg-grid"></div>
       <div class="corner-glow"></div>
       <div class="header-bar" >
-        <div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div>
+        <div class="logo-area"><div class="logo-badge">W</div><div class="logo-text">瓦力喵 <span>WALI GAMING</span></div></div>
         <div class="page-indicator">01 / 25</div>
       </div>
       <div class="content-area" style="align-items: center;">
@@ -142,6 +166,8 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
           <h1 class="main-title-xl animate-in">无畏契约</h1>
           <h2 class="main-title-xl animate-in" style="color: var(--accent); margin-top: 10px;">VCT CN</h2>
           <h3 class="main-title-xl animate-in" style="margin-top: 10px;">线下观赛</h3>
+<div class="wali-cover-brand animate-in delay-1">瓦力喵 <b>WALI GAMING</b> 出品 · <span class="r">台下亦是主场</span></div>
+<a class="wali-news-btn animate-in delay-2" href="https://muse.ai/s/space-txs6xg4fqrxkxor/3sCImOCobOBEFyXcBRKCi23ivzgRvrDSWCWBlxeiQ-k" target="_blank" rel="noopener">📰 瓦力喵每日资讯 · 早晚两档 →</a>
         </div>
         <div style="display: flex; flex-direction: column; justify-content: center;">
           <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
@@ -157,7 +183,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
     <!-- SLIDE 1: 目录 -->
     <div class="slide" id="slide-1">
       <div class="bg-grid"></div>
-      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">目录</span></div><div class="page-indicator">02 / 25</div></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">W</div><div class="logo-text">瓦力喵 <span>WALI GAMING</span></div></div><div class="nav-tags"><span class="nav-tag active">目录</span></div><div class="page-indicator">02 / 25</div></div>
       <div class="content-area-full">
         <div class="section-tag"><span class="tag-number">01</span><span class="tag-text">Contents</span></div>
         <h2 class="main-title" style="margin-bottom: 20px;">手册目录</h2>
@@ -179,7 +205,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
     <!-- SLIDE 2: 2026赛事日历 -->
     <div class="slide" id="slide-2">
       <div class="bg-grid"></div><div class="corner-glow"></div>
-      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">观赛决策</span></div><div class="page-indicator">03 / 25</div></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">W</div><div class="logo-text">瓦力喵 <span>WALI GAMING</span></div></div><div class="nav-tags"><span class="nav-tag active">观赛决策</span></div><div class="page-indicator">03 / 25</div></div>
       <div class="content-area-full">
         <div class="section-tag"><span class="tag-number">01</span><span class="tag-text">Event Calendar 2026</span></div>
         <h2 class="main-title" style="margin-bottom: 30px;">2026年赛事日历</h2>
@@ -216,7 +242,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
     <!-- SLIDE 3: VCT源能中心 -->
     <div class="slide" id="slide-3">
       <div class="bg-grid"></div><div class="corner-glow"></div>
-      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">权益体系</span></div><div class="page-indicator">04 / 25</div></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">W</div><div class="logo-text">瓦力喵 <span>WALI GAMING</span></div></div><div class="nav-tags"><span class="nav-tag active">权益体系</span></div><div class="page-indicator">04 / 25</div></div>
       <div class="content-area-full">
         <div class="section-tag"><span class="tag-number">02</span><span class="tag-text">VCT Energy Center</span></div>
         <h2 class="main-title" style="margin-bottom: 30px;">核心权益体系：VCT源能中心</h2>
@@ -247,7 +273,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
     <!-- SLIDE 4: 信息获取渠道 -->
     <div class="slide" id="slide-4">
       <div class="bg-grid"></div>
-      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">信息渠道</span></div><div class="page-indicator">05 / 25</div></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">W</div><div class="logo-text">瓦力喵 <span>WALI GAMING</span></div></div><div class="nav-tags"><span class="nav-tag active">信息渠道</span></div><div class="page-indicator">05 / 25</div></div>
       <div class="content-area-full">
         <div class="section-tag"><span class="tag-number">03</span><span class="tag-text">Official Channels</span></div>
         <h2 class="main-title" style="margin-bottom: 30px;">官方信息获取渠道</h2>
@@ -267,13 +293,13 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
     <!-- SLIDE 5: 购票渠道 -->
     <div class="slide" id="slide-5">
       <div class="bg-grid"></div>
-      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">购票攻略</span></div><div class="page-indicator">06 / 25</div></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">W</div><div class="logo-text">瓦力喵 <span>WALI GAMING</span></div></div><div class="nav-tags"><span class="nav-tag active">购票攻略</span></div><div class="page-indicator">06 / 25</div></div>
       <div class="content-area-full">
         <div class="section-tag"><span class="tag-number">04</span><span class="tag-text">Official Channels</span></div>
         <h2 class="main-title" style="margin-bottom: 30px;">官方购票渠道</h2>
         <div class="content-area" style="gap: 40px;">
           <div style="display: flex; flex-direction: column; gap: 20px;">
-            <div class="info-card" style="border-color: var(--accent);"><div class="card-header"><div class="card-icon" style="background: rgba(255, 107, 0, 0.2);">🏟️</div><div class="card-title">国内联赛</div></div><div style="font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 10px;">bilibili会员购</div><div style="color: var(--text-secondary);">所有门票统一在此平台发售</div></div>
+            <div class="info-card" style="border-color: var(--accent);"><div class="card-header"><div class="card-icon" style="background: rgba(255, 70, 85, 0.2);">🏟️</div><div class="card-title">国内联赛</div></div><div style="font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 10px;">bilibili会员购</div><div style="color: var(--text-secondary);">所有门票统一在此平台发售</div></div>
             <div class="info-card cyan" style="border-color: var(--accent-cyan);"><div class="card-header"><div class="card-icon" style="background: rgba(0, 212, 255, 0.2);">🏆</div><div class="card-title">上海冠军赛</div></div><div style="font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 10px;">万事达信用卡优先购</div><div style="color: var(--text-secondary);">无VCT源能中心优先购</div></div>
           </div>
           <div style="display: flex; flex-direction: column; gap: 20px;">
@@ -289,7 +315,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
     <!-- SLIDE 6: 购票规则 -->
     <div class="slide" id="slide-6">
       <div class="bg-grid"></div><div class="corner-glow"></div>
-      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">购票规则</span></div><div class="page-indicator">07 / 25</div></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">W</div><div class="logo-text">瓦力喵 <span>WALI GAMING</span></div></div><div class="nav-tags"><span class="nav-tag active">购票规则</span></div><div class="page-indicator">07 / 25</div></div>
       <div class="content-area-full">
         <div class="section-tag"><span class="tag-number">05</span><span class="tag-text">Ticket Rules</span></div>
         <h2 class="main-title" style="margin-bottom: 30px;">购票基本规则</h2>
@@ -309,7 +335,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
     <!-- SLIDE 7: 抢票技巧 -->
     <div class="slide" id="slide-7">
       <div class="bg-grid"></div>
-      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">抢票技巧</span></div><div class="page-indicator">08 / 25</div></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">W</div><div class="logo-text">瓦力喵 <span>WALI GAMING</span></div></div><div class="nav-tags"><span class="nav-tag active">抢票技巧</span></div><div class="page-indicator">08 / 25</div></div>
       <div class="content-area-full">
         <div class="section-tag"><span class="tag-number">06</span><span class="tag-text">Ticketing Tips</span></div>
         <h2 class="main-title" style="margin-bottom: 30px;">抢票难度与技巧</h2>
@@ -325,7 +351,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
     <!-- SLIDE 8: 票价升舱 -->
     <div class="slide" id="slide-8">
       <div class="bg-grid"></div><div class="corner-glow"></div>
-      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">票价升舱</span></div><div class="page-indicator">09 / 25</div></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">W</div><div class="logo-text">瓦力喵 <span>WALI GAMING</span></div></div><div class="nav-tags"><span class="nav-tag active">票价升舱</span></div><div class="page-indicator">09 / 25</div></div>
       <div class="content-area-full">
         <div class="section-tag"><span class="tag-number">07</span><span class="tag-text">Pricing & Upgrade</span></div>
         <h2 class="main-title" style="margin-bottom: 30px;">票价与升舱政策</h2>
@@ -347,7 +373,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
     <!-- SLIDE 9: 必带清单 -->
     <div class="slide" id="slide-9">
       <div class="bg-grid"></div>
-      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">行前准备</span></div><div class="page-indicator">10 / 25</div></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">W</div><div class="logo-text">瓦力喵 <span>WALI GAMING</span></div></div><div class="nav-tags"><span class="nav-tag active">行前准备</span></div><div class="page-indicator">10 / 25</div></div>
       <div class="content-area-full">
         <div class="section-tag"><span class="tag-number">08</span><span class="tag-text">Packing List</span></div>
         <h2 class="main-title" style="margin-bottom: 30px;">必带物品清单</h2>
@@ -369,7 +395,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
     <!-- SLIDE 10: 禁止携带 -->
     <div class="slide" id="slide-10">
       <div class="bg-grid"></div><div class="corner-glow"></div>
-      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">禁止携带</span></div><div class="page-indicator">11 / 25</div></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">W</div><div class="logo-text">瓦力喵 <span>WALI GAMING</span></div></div><div class="nav-tags"><span class="nav-tag active">禁止携带</span></div><div class="page-indicator">11 / 25</div></div>
       <div class="content-area-full">
         <div class="section-tag"><span class="tag-number">09</span><span class="tag-text">Prohibited Items</span></div>
         <h2 class="main-title" style="margin-bottom: 30px;">禁止携带物品</h2>
@@ -389,7 +415,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
     <!-- SLIDE 11: 入场流程 -->
     <div class="slide" id="slide-11">
       <div class="bg-grid"></div>
-      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">入场流程</span></div><div class="page-indicator">12 / 25</div></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">W</div><div class="logo-text">瓦力喵 <span>WALI GAMING</span></div></div><div class="nav-tags"><span class="nav-tag active">入场流程</span></div><div class="page-indicator">12 / 25</div></div>
       <div class="content-area-full">
         <div class="section-tag"><span class="tag-number">10</span><span class="tag-text">Entry Process</span></div>
         <h2 class="main-title" style="margin-bottom: 30px;">入场时间与流程</h2>
@@ -415,7 +441,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
     <!-- SLIDE 12: 特殊情况处理 -->
     <div class="slide" id="slide-12">
       <div class="bg-grid"></div><div class="corner-glow"></div>
-      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">特殊情况</span></div><div class="page-indicator">13 / 25</div></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">W</div><div class="logo-text">瓦力喵 <span>WALI GAMING</span></div></div><div class="nav-tags"><span class="nav-tag active">特殊情况</span></div><div class="page-indicator">13 / 25</div></div>
       <div class="content-area-full">
         <div class="section-tag"><span class="tag-number">11</span><span class="tag-text">Special Cases</span></div>
         <h2 class="main-title" style="margin-bottom: 30px;">特殊情况处理</h2>
@@ -431,7 +457,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
     <!-- SLIDE 13: 应援礼 -->
     <div class="slide" id="slide-13">
       <div class="bg-grid"></div>
-      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">现场体验</span></div><div class="page-indicator">14 / 25</div></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">W</div><div class="logo-text">瓦力喵 <span>WALI GAMING</span></div></div><div class="nav-tags"><span class="nav-tag active">现场体验</span></div><div class="page-indicator">14 / 25</div></div>
       <div class="content-area-full">
         <div class="section-tag"><span class="tag-number">12</span><span class="tag-text">Cheer Gifts</span></div>
         <h2 class="main-title" style="margin-bottom: 30px;">应援礼领取攻略</h2>
@@ -454,7 +480,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
     <!-- SLIDE 14: 周边餐饮 -->
     <div class="slide" id="slide-14">
       <div class="bg-grid"></div><div class="corner-glow"></div>
-      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">周边餐饮</span></div><div class="page-indicator">15 / 25</div></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">W</div><div class="logo-text">瓦力喵 <span>WALI GAMING</span></div></div><div class="nav-tags"><span class="nav-tag active">周边餐饮</span></div><div class="page-indicator">15 / 25</div></div>
       <div class="content-area-full">
         <div class="section-tag"><span class="tag-number">13</span><span class="tag-text">Shopping & Food</span></div>
         <h2 class="main-title" style="margin-bottom: 30px;">周边购买与餐饮</h2>
@@ -477,7 +503,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
     <!-- SLIDE 15: 赋能掉落 -->
     <div class="slide" id="slide-15">
       <div class="bg-grid"></div>
-      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">赋能掉落</span></div><div class="page-indicator">16 / 25</div></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">W</div><div class="logo-text">瓦力喵 <span>WALI GAMING</span></div></div><div class="nav-tags"><span class="nav-tag active">赋能掉落</span></div><div class="page-indicator">16 / 25</div></div>
       <div class="content-area-full">
         <div class="section-tag"><span class="tag-number">14</span><span class="tag-text">In-Game Drops</span></div>
         <h2 class="main-title" style="margin-bottom: 30px;">赋能掉落（游戏道具）</h2>
@@ -501,7 +527,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
     <!-- SLIDE 16: 拍手环节 -->
     <div class="slide" id="slide-16">
       <div class="bg-grid"></div>
-      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">选手互动</span></div><div class="page-indicator">17 / 25</div></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">W</div><div class="logo-text">瓦力喵 <span>WALI GAMING</span></div></div><div class="nav-tags"><span class="nav-tag active">选手互动</span></div><div class="page-indicator">17 / 25</div></div>
       <div class="content-area-full">
         <div class="section-tag"><span class="tag-number">15</span><span class="tag-text">High-Five Session</span></div>
         <h2 class="main-title" style="margin-bottom: 30px;">拍手环节（最受欢迎）</h2>
@@ -524,7 +550,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
     <!-- SLIDE 17: 签名互动 -->
     <div class="slide" id="slide-17">
       <div class="bg-grid"></div><div class="corner-glow"></div>
-      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">签名互动</span></div><div class="page-indicator">18 / 25</div></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">W</div><div class="logo-text">瓦力喵 <span>WALI GAMING</span></div></div><div class="nav-tags"><span class="nav-tag active">签名互动</span></div><div class="page-indicator">18 / 25</div></div>
       <div class="content-area-full">
         <div class="section-tag"><span class="tag-number">16</span><span class="tag-text">Autograph Session</span></div>
         <h2 class="main-title" style="margin-bottom: 30px;">签名与赛后互动</h2>
@@ -550,7 +576,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
     <!-- SLIDE 18: 赛后互动最佳实践 -->
     <div class="slide" id="slide-18">
       <div class="bg-grid"></div>
-      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">互动实践</span></div><div class="page-indicator">19 / 25</div></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">W</div><div class="logo-text">瓦力喵 <span>WALI GAMING</span></div></div><div class="nav-tags"><span class="nav-tag active">互动实践</span></div><div class="page-indicator">19 / 25</div></div>
       <div class="content-area-full">
         <div class="section-tag"><span class="tag-number">17</span><span class="tag-text">Best Practice</span></div>
         <h2 class="main-title" style="margin-bottom: 30px;">赛后互动最佳实践</h2>
@@ -578,7 +604,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
     <!-- SLIDE 19: 比赛时间 -->
     <div class="slide" id="slide-19">
       <div class="bg-grid"></div>
-      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">时间参考</span></div><div class="page-indicator">20 / 25</div></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">W</div><div class="logo-text">瓦力喵 <span>WALI GAMING</span></div></div><div class="nav-tags"><span class="nav-tag active">时间参考</span></div><div class="page-indicator">20 / 25</div></div>
       <div class="content-area-full">
         <div class="section-tag"><span class="tag-number">18</span><span class="tag-text">Schedule Reference</span></div>
         <h2 class="main-title" style="margin-bottom: 30px;">比赛时间参考</h2>
@@ -604,7 +630,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
     <!-- SLIDE 20: 座位选择 -->
     <div class="slide" id="slide-20">
       <div class="bg-grid"></div><div class="corner-glow"></div>
-      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">座位选择</span></div><div class="page-indicator">21 / 25</div></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">W</div><div class="logo-text">瓦力喵 <span>WALI GAMING</span></div></div><div class="nav-tags"><span class="nav-tag active">座位选择</span></div><div class="page-indicator">21 / 25</div></div>
       <div class="content-area-full">
         <div class="section-tag"><span class="tag-number">19</span><span class="tag-text">Seat Selection</span></div>
         <h2 class="main-title" style="margin-bottom: 30px;">座位选择指南</h2>
@@ -626,7 +652,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
     <!-- SLIDE 21: 场馆规则 -->
     <div class="slide" id="slide-21">
       <div class="bg-grid"></div>
-      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">场馆规则</span></div><div class="page-indicator">22 / 25</div></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">W</div><div class="logo-text">瓦力喵 <span>WALI GAMING</span></div></div><div class="nav-tags"><span class="nav-tag active">场馆规则</span></div><div class="page-indicator">22 / 25</div></div>
       <div class="content-area-full">
         <div class="section-tag"><span class="tag-number">20</span><span class="tag-text">Venue Rules</span></div>
         <h2 class="main-title" style="margin-bottom: 30px;">场馆内规则</h2>
@@ -642,7 +668,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
     <!-- SLIDE 22: 速查清单 -->
     <div class="slide" id="slide-22">
       <div class="bg-grid"></div>
-      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">速查清单</span></div><div class="page-indicator">23 / 25</div></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">W</div><div class="logo-text">瓦力喵 <span>WALI GAMING</span></div></div><div class="nav-tags"><span class="nav-tag active">速查清单</span></div><div class="page-indicator">23 / 25</div></div>
       <div class="content-area-full">
         <div class="section-tag"><span class="tag-number">21</span><span class="tag-text">Checklist</span></div>
         <h2 class="main-title" style="margin-bottom: 30px;">出发前速查清单</h2>
@@ -664,7 +690,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
     <!-- SLIDE 23: 核心避坑 -->
     <div class="slide" id="slide-23">
       <div class="bg-grid"></div><div class="corner-glow"></div>
-      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="nav-tags"><span class="nav-tag active">避坑要点</span></div><div class="page-indicator">24 / 25</div></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">W</div><div class="logo-text">瓦力喵 <span>WALI GAMING</span></div></div><div class="nav-tags"><span class="nav-tag active">避坑要点</span></div><div class="page-indicator">24 / 25</div></div>
       <div class="content-area-full">
         <div class="section-tag"><span class="tag-number">22</span><span class="tag-text">Key Warnings</span></div>
         <h2 class="main-title" style="margin-bottom: 30px;">核心避坑要点</h2>
@@ -686,11 +712,13 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
     <!-- SLIDE 24: 结尾页 -->
     <div class="slide" id="slide-24">
       <div class="bg-grid"></div><div class="corner-glow"></div>
-      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">V</div><div class="logo-text">VCT <span>CN</span></div></div><div class="page-indicator">25 / 25</div></div>
+      <div class="header-bar" ><div class="logo-area"><div class="logo-badge">W</div><div class="logo-text">瓦力喵 <span>WALI GAMING</span></div></div><div class="page-indicator">25 / 25</div></div>
       <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10; text-align: center;">
         <div class="section-tag" style="justify-content: center; margin-bottom: 20px;"><div class="tag-line"></div><span class="tag-text">Thank You</span><div class="tag-line"></div></div>
         <h2 class="main-title-xl" style="text-align: center; margin-bottom: 20px;">祝您观赛愉快！</h2>
         <p style="font-size: 18px; color: var(--text-secondary);">期待与您在赛场相见</p>
+<p style="font-size: 17px; color: var(--text-secondary); margin-top: 26px;">抖音 / 小红书同名搜索「瓦力喵」 · 台下亦是主场</p>
+<a class="wali-news-btn" href="https://muse.ai/s/space-txs6xg4fqrxkxor/3sCImOCobOBEFyXcBRKCi23ivzgRvrDSWCWBlxeiQ-k" target="_blank" rel="noopener">📰 瓦力喵每日资讯 · 每天早 8:00 / 晚 18:00 →</a>
       </div>
     </div>
 
@@ -699,8 +727,10 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
 
 <!-- Quick Navigation Bar -->
 <div style="position: fixed; top: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; align-items: center; z-index: 1000; background: rgba(26, 26, 26, 0.95); padding: 10px 20px; border-radius: 10px; border: 1px solid var(--border-color); backdrop-filter: blur(10px);">
+  <span class="wali-brand"><span class="wb-badge">W</span>瓦力喵 <span class="wb-slogan">台下亦是主场</span></span>
   <button onclick="goToSlide(0)" style="padding: 8px 16px; background: var(--accent); border: none; color: #000; font-weight: 700; border-radius: 6px; cursor: pointer; font-size: 13px;">🏠 首页</button>
   <button onclick="goToSlide(1)" style="padding: 8px 16px; background: var(--bg-card); border: 1px solid var(--accent); color: var(--accent); border-radius: 6px; cursor: pointer; font-size: 13px;">📋 目录</button>
+  <a href="https://muse.ai/s/space-txs6xg4fqrxkxor/3sCImOCobOBEFyXcBRKCi23ivzgRvrDSWCWBlxeiQ-k" target="_blank" rel="noopener" style="padding: 8px 16px; background: #ff4655; border: none; color: #fff; font-weight: 700; border-radius: 6px; font-size: 13px; text-decoration: none;">📰 每日资讯</a>
   <div style="width: 1px; height: 24px; background: var(--border-color); margin: 0 5px;"></div>
   <span style="color: var(--text-secondary); font-size: 13px;">跳转到:</span>
   <select id="pageJump" onchange="goToSlide(parseInt(this.value) - 1)" style="padding: 8px 12px; background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-primary); border-radius: 6px; cursor: pointer; font-size: 13px; min-width: 200px;">
@@ -743,6 +773,17 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
 const slides = document.querySelectorAll('.slide');
 let currentSlide = 0;
 const totalSlides = slides.length;
+const stage = document.querySelector('.deck-stage');
+
+/* Fit the fixed 1920x1080 stage to any screen (phones included) */
+function fitStage() {
+  if (!stage) return;
+  const s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+  stage.style.transform = `translate(-50%, -50%) scale(${s})`;
+}
+window.addEventListener('resize', fitStage);
+window.addEventListener('orientationchange', fitStage);
+fitStage();
 
 function showSlide(index) {
   if (index < 0) index = 0;
@@ -752,16 +793,14 @@ function showSlide(index) {
     if (i === index) slide.classList.add('active', 'visible');
   });
   currentSlide = index;
-  document.getElementById('pageDisplay').textContent = `${index + 1} / 25`;
-}
-
-function goToSlide(index) {
-  showSlide(index);
-  // Sync dropdown with current page
+  document.getElementById('pageDisplay').textContent = `${index + 1} / ${totalSlides}`;
   const dropdown = document.getElementById('pageJump');
   if (dropdown) dropdown.value = index + 1;
+  const bar = document.getElementById('wali-progress');
+  if (bar) bar.style.width = ((index + 1) / totalSlides * 100) + '%';
+  try { history.replaceState(null, '', '#p' + (index + 1)); } catch (e) {}
 }
-
+function goToSlide(index) { showSlide(index); }
 function nextSlide() { showSlide(currentSlide + 1); }
 function prevSlide() { showSlide(currentSlide - 1); }
 
@@ -770,13 +809,28 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
 });
 
-// Add click handlers to all clickable cards
+/* Touch swipe for phones */
+let touchX = null;
+document.addEventListener('touchstart', (e) => { touchX = e.changedTouches[0].screenX; }, { passive: true });
+document.addEventListener('touchend', (e) => {
+  if (touchX === null) return;
+  const dx = e.changedTouches[0].screenX - touchX;
+  if (Math.abs(dx) > 60) { dx < 0 ? nextSlide() : prevSlide(); }
+  touchX = null;
+}, { passive: true });
+
 document.querySelectorAll('.info-card.clickable').forEach(card => {
   card.addEventListener('click', () => {
     const target = card.getAttribute('data-goto');
     if (target) goToSlide(parseInt(target));
   });
 });
+
+/* Deep link: #p7 opens slide 7 */
+(function initFromHash() {
+  const m = location.hash.match(/^#p(\d+)$/);
+  showSlide(m ? parseInt(m[1]) - 1 : 0);
+})();
 </script>
 </body>
 </html>

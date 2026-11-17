@@ -211,6 +211,33 @@ html.glass .wali-news-btn { clip-path: none; border-radius: 999px; box-shadow: i
   #wali-quicknav select { min-width: 0 !important; flex: 1 1 140px; }
   #wali-quicknav .wb-slogan { display: none; }
 }
+
+@font-face { font-family: 'WaliPixel'; src: url('fusion-pixel-zh.woff2') format('woff2'); font-display: swap; }
+
+/* === v7 PC pixel system (desktop / landscape only; mobile glass untouched) === */
+html:not(.glass) .deck-viewport { background-image: linear-gradient(rgba(255,255,255,.032) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.032) 1px, transparent 1px); background-size: 48px 48px; }
+html:not(.glass) .deck-viewport::after { background: radial-gradient(rgba(255,255,255,.05) 2px, transparent 2.5px); background-size: 48px 48px; }
+html:not(.glass) .section-title, html:not(.glass) .main-title, html:not(.glass) .main-title-xl,
+html:not(.glass) .tag-number, html:not(.glass) .stat-number, html:not(.glass) .slide-divider .section-num,
+html:not(.glass) .logo-text { font-family: 'WaliPixel', "Noto Sans SC", sans-serif; font-weight: 400; }
+html:not(.glass) .section-title { font-size: 60px; letter-spacing: 2px; text-shadow: 4px 4px 0 rgba(0,0,0,.55); }
+html:not(.glass) .main-title { font-size: 60px; }
+html:not(.glass) .main-title-xl { font-size: 72px; text-shadow: 6px 6px 0 rgba(0,0,0,.6); }
+html:not(.glass) .tag-number { font-size: 60px; }
+html:not(.glass) .stat-number { font-size: 24px; }
+html:not(.glass) .slide-divider .section-num { font-size: 192px; text-shadow: 8px 8px 0 rgba(0,0,0,.5); }
+html:not(.glass) .info-card { border-radius: 0; border: 2px solid rgba(255,70,85,.35); box-shadow: 6px 6px 0 rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.07); }
+html:not(.glass) .info-card::before { height: 4px; }
+html:not(.glass) .info-card:hover { box-shadow: 9px 9px 0 rgba(0,0,0,.55); transform: translate(-2px,-2px); }
+html:not(.glass) .stat-box, html:not(.glass) .alert-box { border-radius: 0; border-width: 2px; box-shadow: 4px 4px 0 rgba(0,0,0,.5); }
+html:not(.glass) .nav-tag { border-radius: 0 !important; border: 2px solid rgba(255,255,255,.22); box-shadow: 4px 4px 0 rgba(0,0,0,.5); }
+html:not(.glass) .wali-news-btn { clip-path: none; border-radius: 0; border: 2px solid #000; box-shadow: inset -5px -9px 0 rgba(0,0,0,.28), inset 5px 5px 0 rgba(255,255,255,.25), 5px 5px 0 rgba(0,0,0,.5); font-family: 'WaliPixel', "Noto Sans SC", sans-serif; }
+html:not(.glass) #wali-quicknav { border-radius: 0 !important; border: 2px solid rgba(255,255,255,.25) !important; box-shadow: 6px 6px 0 rgba(0,0,0,.55) !important; }
+html:not(.glass) #wali-quicknav button, html:not(.glass) #wali-quicknav a, html:not(.glass) #wali-quicknav select { border-radius: 0 !important; }
+html:not(.glass) #wali-controls button { border-radius: 0; border: 2px solid rgba(255,255,255,.3); box-shadow: inset -4px -7px 0 rgba(0,0,0,.3), inset 4px 4px 0 rgba(255,255,255,.18), 4px 4px 0 rgba(0,0,0,.5); }
+html:not(.glass) #wali-progress { background: repeating-linear-gradient(90deg, #ff4655 0 16px, rgba(255,70,85,.25) 16px 20px); box-shadow: none; }
+html:not(.glass) .logo-badge { border-radius: 0; box-shadow: 4px 4px 0 rgba(0,0,0,.55); }
+html:not(.glass) table th { background: #1d1d27; border-bottom: 3px solid #ff4655; }
 </style>
 </head>
 <body>

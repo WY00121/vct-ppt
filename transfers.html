@@ -55,6 +55,28 @@
   details.poster summary::after { content:' ▾'; }
   details.poster[open ] summary::after { content:' ▴'; }
   details.poster img { width:100%; height:auto; display:block; margin-top:10px; border-radius:12px; background:#1a1a1a; }
+
+@font-face { font-family: 'WaliPixel'; src: url('fusion-pixel-zh.woff2') format('woff2'); font-display: swap; }
+
+/* === v7 PC pixel skin (desktop only; mobile keeps liquid glass) === */
+@media (min-width: 861px) {
+  body::before { background: #0a0a10; background-image: linear-gradient(rgba(255,255,255,.032) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.032) 1px, transparent 1px); background-size: 48px 48px; }
+  header { border-radius: 0; background: #101018; -webkit-backdrop-filter: none; backdrop-filter: none; border: 2px solid #2c2c36; border-bottom: 4px solid #ff4655; box-shadow: 6px 6px 0 rgba(0,0,0,.55); }
+  .badge { border-radius: 0; box-shadow: 3px 3px 0 rgba(0,0,0,.6); }
+  header nav a { border-radius: 0; border: 2px solid rgba(255,255,255,.25); background: #1a1a24; color: #fff; box-shadow: 3px 3px 0 rgba(0,0,0,.5); }
+  .timeline::before { width: 4px; background: #ff4655; box-shadow: none; }
+  .day::before { border-radius: 0; box-shadow: 0 0 0 2px #ff4655, 3px 3px 0 rgba(0,0,0,.6); }
+  .day-head .date { font-family: 'WaliPixel', "Noto Sans SC", sans-serif; font-size: 24px; letter-spacing: 1px; }
+  footer .slogan { font-family: 'WaliPixel', "Noto Sans SC", sans-serif; font-size: 24px; }
+}
+
+@media (min-width: 861px) {
+  .card { border-radius: 0; background: #14141d; -webkit-backdrop-filter: none; backdrop-filter: none; border: 2px solid #2e2e3a; box-shadow: 6px 6px 0 rgba(0,0,0,.55); }
+  .card:hover { transform: translate(-2px,-2px); box-shadow: 9px 9px 0 rgba(0,0,0,.55); border-color: rgba(255,70,85,.6); }
+  .card-head .num { font-family: 'WaliPixel', monospace; font-size: 12px; }
+  details.poster summary { border-radius: 0; background: #1a1a24; border: 2px solid rgba(255,255,255,.2); box-shadow: 3px 3px 0 rgba(0,0,0,.5); }
+  details.poster img { border-radius: 0; }
+}
 </style>
 </head>
 <body>

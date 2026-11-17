@@ -147,18 +147,69 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg-p
   #wali-rotate-tip b { color: #ff4655; }
 }
 
-/* === v3: fluid portrait mode + compact mobile chrome (2026-11-17) === */
-html.flow .deck-stage { left: 0; top: 0; width: 100%; height: 100%; transform: none !important; }
-html.flow .slide { width: 100%; height: 100%; overflow-y: auto; overflow-x: hidden; padding: 128px 20px 130px; zoom: 0.64; align-items: stretch; }
-html.flow .content-quad, html.flow .content-thirds, html.flow .two-col { grid-template-columns: 1fr 1fr !important; }
-html.flow [style*="repeat(3, 1fr)"], html.flow [style*="repeat(4, 1fr)"] { grid-template-columns: 1fr 1fr !important; }
-html.flow #wali-rotate-tip { display: none !important; }
-@media (max-width: 860px) {
+
+/* === v6 design system (2026-11-17): desktop = esports HUD polish; portrait phone = iOS liquid-glass feed === */
+/* desktop gaming polish */
+body { background: #07070b radial-gradient(1100px 600px at 85% -10%, rgba(255,70,85,.14), transparent 60%), radial-gradient(900px 700px at -10% 110%, rgba(60,80,255,.10), transparent 60%); }
+html:not(.glass) .deck-viewport::after { content:''; position:absolute; inset:0; pointer-events:none; background: repeating-linear-gradient(0deg, rgba(255,255,255,.014) 0 1px, transparent 1px 3px); z-index: 5; }
+.info-card { background: linear-gradient(155deg, rgba(255,255,255,.055), rgba(255,255,255,.012)); border: 1px solid rgba(255,70,85,.22); box-shadow: inset 0 1px 0 rgba(255,255,255,.07); }
+.info-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background: linear-gradient(90deg, #ff4655, transparent 65%); opacity:.85; }
+.info-card:hover { border-color: rgba(255,70,85,.55); box-shadow: 0 0 0 1px rgba(255,70,85,.25), 0 10px 30px rgba(0,0,0,.35); }
+.section-title { letter-spacing: 1px; text-shadow: 0 0 26px rgba(255,70,85,.28); }
+.logo-badge { box-shadow: 0 0 18px rgba(255,70,85,.5); }
+.wali-news-btn { clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px); box-shadow: 0 6px 24px rgba(255,70,85,.35); }
+#wali-progress { box-shadow: 0 0 12px rgba(255,70,85,.8); }
+.slide-divider .section-num { text-shadow: 0 0 60px rgba(255,70,85,.35); }
+#wali-quicknav { box-shadow: 0 12px 34px rgba(0,0,0,.45); }
+/* portrait phone: liquid glass feed */
+html.glass, html.glass body { overflow-x: hidden; overflow-y: auto; }
+html.glass body { background: #08080f; }
+html.glass body::before { content:''; position: fixed; inset: 0; z-index: 0; pointer-events: none; background:
+  radial-gradient(520px 380px at 12% -4%, rgba(255,70,85,.34), transparent 62%),
+  radial-gradient(560px 460px at 105% 22%, rgba(64,90,255,.28), transparent 62%),
+  radial-gradient(640px 520px at 50% 108%, rgba(0,200,190,.16), transparent 60%),
+  linear-gradient(180deg, #0a0a13, #07070c); }
+html.glass .deck-viewport { position: relative; height: auto; overflow: visible; background: transparent; z-index: 1; }
+html.glass .deck-stage { position: relative; left: 0; top: 0; width: 100%; height: auto; transform: none !important; padding: 118px 0 30px; }
+html.glass .slide { position: relative; width: auto; height: auto; inset: auto; visibility: visible !important; opacity: 1 !important; overflow: visible; display: block; margin: 0 12px 16px; padding: 22px 18px 24px; border-radius: 26px;
+  background: linear-gradient(155deg, rgba(255,255,255,.11), rgba(255,255,255,.045));
+  -webkit-backdrop-filter: blur(20px) saturate(170%); backdrop-filter: blur(20px) saturate(170%);
+  border: 1px solid rgba(255,255,255,.16);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.28), inset 0 -1px 0 rgba(255,255,255,.05), 0 18px 42px rgba(0,0,0,.38); }
+html.glass .slide .bg-grid { display: none; }
+html.glass .header-bar { margin-bottom: 14px; }
+html.glass .page-indicator { background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.16); padding: 4px 10px; border-radius: 999px; font-size: 12px; }
+html.glass .section-title { font-size: 29px; line-height: 1.25; margin-bottom: 12px; }
+html.glass .main-title { font-size: 34px; line-height: 1.2; }
+html.glass .main-title-xl { font-size: 42px; line-height: 1.15; }
+html.glass .tag-number { font-size: 32px; }
+html.glass .slide-divider .section-num { font-size: 88px; line-height: 1; }
+html.glass .slide-divider .section-title { font-size: 30px; }
+html.glass .stat-number { font-size: 24px; }
+html.glass .card-title { font-size: 16px; }
+html.glass .card-content { font-size: 14.5px; line-height: 1.7; color: rgba(235,238,245,.82); }
+html.glass .alert-text, html.glass .alert-title { font-size: 14.5px; line-height: 1.65; }
+html.glass .info-card { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.13); border-radius: 18px; padding: 15px 16px; box-shadow: inset 0 1px 0 rgba(255,255,255,.14); }
+html.glass .info-card::before { display: none; }
+html.glass .stat-box { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.13); border-radius: 16px; }
+html.glass .alert-box { border-radius: 16px; }
+html.glass .content-area, html.glass .content-area-full, html.glass .content-quad, html.glass .content-thirds, html.glass .two-col { display: grid; grid-template-columns: 1fr !important; gap: 12px; flex: none; }
+html.glass [style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+html.glass table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; font-size: 13.5px; }
+html.glass img { max-width: 100%; height: auto; }
+html.glass #wali-quicknav { top: 10px !important; left: 10px !important; right: 10px !important; transform: none !important; flex-wrap: wrap; justify-content: center; row-gap: 6px; padding: 10px 12px !important; border-radius: 22px !important;
+  background: rgba(18,18,28,.52) !important; -webkit-backdrop-filter: blur(22px) saturate(180%); backdrop-filter: blur(22px) saturate(180%);
+  border: 1px solid rgba(255,255,255,.16) !important; box-shadow: inset 0 1px 0 rgba(255,255,255,.22), 0 14px 34px rgba(0,0,0,.4) !important; }
+html.glass #wali-quicknav select { min-width: 0 !important; flex: 1 1 130px; background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.16); border-radius: 12px; color: #fff; }
+html.glass #wali-quicknav .wb-slogan { display: none; }
+html.glass #wali-quicknav a, html.glass #wali-quicknav button { border-radius: 999px !important; }
+html.glass #wali-controls { display: none !important; }
+html.glass #wali-rotate-tip { display: none !important; }
+html.glass .wali-news-btn { clip-path: none; border-radius: 999px; box-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 8px 22px rgba(255,70,85,.3); }
+@media (max-width: 860px) and (orientation: landscape) {
   #wali-quicknav { top: 10px !important; left: 8px !important; right: 8px !important; transform: none !important; flex-wrap: wrap; justify-content: center; row-gap: 6px; padding: 8px 10px !important; }
   #wali-quicknav select { min-width: 0 !important; flex: 1 1 140px; }
   #wali-quicknav .wb-slogan { display: none; }
-  #wali-controls { bottom: 10px !important; gap: 8px !important; }
-  #wali-controls button { padding: 9px 14px !important; }
 }
 </style>
 </head>
@@ -793,20 +844,28 @@ const totalSlides = slides.length;
 const stage = document.querySelector('.deck-stage');
 
 /* Fit the fixed 1920x1080 stage to any screen (phones included) */
-function isFlowMode() {
+function isGlassMode() {
   return window.matchMedia('(max-width: 860px) and (orientation: portrait)').matches;
 }
 function fitStage() {
   if (!stage) return;
-  if (isFlowMode()) {
-    document.documentElement.classList.add('flow');
+  if (isGlassMode()) {
+    document.documentElement.classList.add('glass');
     stage.style.transform = 'none';
   } else {
-    document.documentElement.classList.remove('flow');
+    document.documentElement.classList.remove('glass');
     const s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
     stage.style.transform = `translate(-50%, -50%) scale(${s})`;
   }
 }
+window.addEventListener('scroll', () => {
+  if (!document.documentElement.classList.contains('glass')) return;
+  const bar = document.getElementById('wali-progress');
+  if (!bar) return;
+  const h = document.documentElement;
+  const max = h.scrollHeight - h.clientHeight;
+  bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+}, { passive: true });
 window.addEventListener('resize', fitStage);
 window.addEventListener('orientationchange', fitStage);
 fitStage();
@@ -819,7 +878,7 @@ function showSlide(index) {
     if (i === index) slide.classList.add('active', 'visible');
   });
   currentSlide = index;
-  if (document.documentElement.classList.contains('flow')) { const a = slides[index]; if (a) a.scrollTop = 0; }
+  if (document.documentElement.classList.contains('glass')) { const a = slides[index]; if (a) a.scrollIntoView({ block: 'start' }); }
   document.getElementById('pageDisplay').textContent = `${index + 1} / ${totalSlides}`;
   const dropdown = document.getElementById('pageJump');
   if (dropdown) dropdown.value = index + 1;

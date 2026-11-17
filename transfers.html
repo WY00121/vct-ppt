@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>转会讯息 · 官宣追踪｜瓦力喵 WALI GAMING</title>
-<meta name="description" content="无畏契约转会窗官方官宣追踪：只收战队与选手官方官宣，每条附原帖截图与中文翻译，每天更新一次。">
+<meta name="description" content="无畏契约转会窗官方官宣追踪：只收战队与选手官方官宣，每条附原帖截图与中文翻译，每天更新一次，时间轴展示。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="转会讯息 · 官宣追踪｜瓦力喵 WALI GAMING">
-<meta property="og:description" content="只收官方官宣 · 原帖截图 + 中文翻译 · 每天更新一次">
+<meta property="og:description" content="只收官方官宣 · 原帖截图 + 中文翻译 · 时间轴 · 每天更新一次">
 <meta name="theme-color" content="#0d0d0d">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%23FF4655'/><text x='32' y='44' font-family='Arial Black,Arial' font-size='34' font-weight='900' fill='white' text-anchor='middle'>W</text></svg>">
 <style>
@@ -19,23 +19,30 @@
   header h1 span { color:#ff4655; }
   header nav { margin-left:auto; display:flex; gap:8px; }
   header nav a { color:#ff7585; text-decoration:none; font-size:14px; font-weight:700; border:1px solid #ff4655; padding:6px 12px; border-radius:6px; }
-  .intro { max-width:860px; margin:0 auto; padding:18px 16px 4px; color:#aaa; font-size:14px; line-height:1.7; }
+  .intro { max-width:860px; margin:0 auto; padding:18px 16px 2px; color:#aaa; font-size:14px; line-height:1.7; }
   .intro b { color:#fff; }
-  main { max-width:860px; margin:0 auto; padding:6px 12px 40px; }
-  .day { margin-top:26px; }
-  .day-head { display:flex; align-items:baseline; gap:10px; margin:0 4px 12px; }
+  .timeline { position:relative; max-width:860px; margin:0 auto; padding:8px 16px 44px 44px; }
+  .timeline::before { content:''; position:absolute; top:0; bottom:0; left:23px; width:2px; background:linear-gradient(#ff4655, #3a3a3a); }
+  .day { position:relative; margin-top:30px; }
+  .day::before { content:''; position:absolute; left:-28px; top:4px; width:11px; height:11px; border-radius:50%; background:#ff4655; border:3px solid #0d0d0d; box-shadow:0 0 0 2px #ff4655; }
+  .day-head { display:flex; align-items:baseline; gap:10px; margin-bottom:12px; }
   .day-head .date { font-size:21px; font-weight:900; }
   .day-head .weekday { color:#888; font-size:14px; }
-  .card { border:1px solid #2a2a2a; border-radius:10px; overflow:hidden; margin-bottom:16px; background:#141414; }
-  .card-head { display:flex; align-items:baseline; gap:10px; padding:12px 14px; flex-wrap:wrap; }
-  .card-head .time { color:#888; font-size:13px; white-space:nowrap; }
-  .card-head h3 { font-size:17px; flex:1; min-width:200px; }
-  .card-head .num { color:#ff4655; font-weight:900; font-size:14px; }
-  .card img { width:100%; height:auto; display:block; background:#1a1a1a; }
-  .pending { margin:0 14px 14px; border:1px dashed #444; border-radius:8px; padding:22px 14px; text-align:center; color:#ccc; font-size:15px; line-height:1.8; }
-  .pending span { color:#777; font-size:13px; }
+  .day-head .count { margin-left:auto; color:#666; font-size:13px; }
   footer { border-top:1px solid #2a2a2a; padding:22px 16px 34px; text-align:center; color:#888; font-size:14px; line-height:1.9; }
   footer .slogan { color:#ff4655; font-weight:900; font-size:16px; }
+
+  .card { border:1px solid #2a2a2a; border-radius:10px; margin-bottom:12px; background:#141414; padding:12px 14px; }
+  .card-head { display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; }
+  .card-head .time { color:#888; font-size:13px; white-space:nowrap; }
+  .card-head h3 { font-size:16px; flex:1; min-width:180px; }
+  .card-head .num { color:#ff4655; font-weight:900; font-size:14px; }
+  details.poster { margin-top:10px; }
+  details.poster summary { cursor:pointer; color:#ff7585; font-size:14px; font-weight:700; padding:8px 12px; border:1px solid #333; border-radius:6px; list-style:none; }
+  details.poster summary::-webkit-details-marker { display:none; }
+  details.poster summary::after { content:' ▾'; }
+  details.poster[open ] summary::after { content:' ▴'; }
+  details.poster img { width:100%; height:auto; display:block; margin-top:10px; border-radius:8px; background:#1a1a1a; }
 </style>
 </head>
 <body>
@@ -44,117 +51,117 @@
   <h1>转会讯息 <span>官宣追踪</span></h1>
   <nav><a href="news.html">每日资讯</a><a href="index.htm">观赛手册</a></nav>
 </header>
-<p class="intro">只收<b>战队与选手官方官宣</b>，传闻不收。每条附<b>原帖截图 + 中文翻译</b>，每天更新一次；截至 2026-11-17，本窗累计已核实官宣 <b>157 条</b>，本页先收录 11-13 以来的部分，其余陆续补齐。</p>
-<main>
+<p class="intro">只收<b>战队与选手官方官宣</b>，传闻不收。沿时间轴按日期倒序排列，点开任意一条即可看<b>原帖截图 + 中文翻译</b>。每天更新一次；截至 2026-11-17，本窗累计已核实官宣 <b>157 条</b>，本页先收录 11-13 以来的部分，其余陆续补齐。</p>
+<main class="timeline">
   <section class="day">
-    <div class="day-head"><span class="date">2026-11-17</span><span class="weekday">周二</span></div>
+    <div class="day-head"><span class="date">2026-11-17</span><span class="weekday">周二</span><span class="count">4 条官宣</span></div>
     <article class="card">
       <div class="card-head"><span class="time">05:01 · 北京时间</span><h3>keiko 加盟 Sentinels</h3><span class="num">#156</span></div>
-      <img src="tr-156-keiko.png" alt="keiko 加盟 Sentinels 官宣海报（原帖截图+中文翻译）" loading="lazy">
+      <details class="poster"><summary>查看原帖截图 + 中文翻译</summary><img src="tr-156-keiko.png" alt="keiko 加盟 Sentinels 官宣海报（原帖截图+中文翻译）" loading="lazy"></details>
     </article>
     <article class="card">
       <div class="card-head"><span class="time">03:46 · 北京时间</span><h3>bao 宣布无限期休赛</h3><span class="num">#157</span></div>
-      <img src="tr-157-bao.png" alt="bao 宣布无限期休赛 官宣海报（原帖截图+中文翻译）" loading="lazy">
+      <details class="poster"><summary>查看原帖截图 + 中文翻译</summary><img src="tr-157-bao.png" alt="bao 宣布无限期休赛 官宣海报（原帖截图+中文翻译）" loading="lazy"></details>
     </article>
     <article class="card">
       <div class="card-head"><span class="time">03:00 · 北京时间</span><h3>shhhack 续约留队 G2</h3><span class="num">#158</span></div>
-      <img src="tr-158-shhhack.png" alt="shhhack 续约留队 G2 官宣海报（原帖截图+中文翻译）" loading="lazy">
+      <details class="poster"><summary>查看原帖截图 + 中文翻译</summary><img src="tr-158-shhhack.png" alt="shhhack 续约留队 G2 官宣海报（原帖截图+中文翻译）" loading="lazy"></details>
     </article>
     <article class="card">
       <div class="card-head"><span class="time">02:53 · 北京时间</span><h3>KROSTALY 离队 FUT、加盟 Eternal Fire</h3><span class="num">#159</span></div>
-      <img src="tr-159-krostaly.png" alt="KROSTALY 离队 FUT、加盟 Eternal Fire 官宣海报（原帖截图+中文翻译）" loading="lazy">
+      <details class="poster"><summary>查看原帖截图 + 中文翻译</summary><img src="tr-159-krostaly.png" alt="KROSTALY 离队 FUT、加盟 Eternal Fire 官宣海报（原帖截图+中文翻译）" loading="lazy"></details>
     </article>
     </section>
   <section class="day">
-    <div class="day-head"><span class="date">2026-11-16</span><span class="weekday">周一</span></div>
+    <div class="day-head"><span class="date">2026-11-16</span><span class="weekday">周一</span><span class="count">2 条官宣</span></div>
     <article class="card">
       <div class="card-head"><span class="time">18:56 · 北京时间</span><h3>xavi8k 确认与 XLG 签约告吹、恢复自由身</h3><span class="num">#155</span></div>
-      <img src="tr-155-xavi8k.png" alt="xavi8k 确认与 XLG 签约告吹、恢复自由身 官宣海报（原帖截图+中文翻译）" loading="lazy">
+      <details class="poster"><summary>查看原帖截图 + 中文翻译</summary><img src="tr-155-xavi8k.png" alt="xavi8k 确认与 XLG 签约告吹、恢复自由身 官宣海报（原帖截图+中文翻译）" loading="lazy"></details>
     </article>
     <article class="card">
       <div class="card-head"><span class="time">16:00 · 北京时间</span><h3>thyy 合同结束、成为自由人</h3><span class="num">#154</span></div>
-      <img src="tr-154-thyy.png" alt="thyy 合同结束、成为自由人 官宣海报（原帖截图+中文翻译）" loading="lazy">
+      <details class="poster"><summary>查看原帖截图 + 中文翻译</summary><img src="tr-154-thyy.png" alt="thyy 合同结束、成为自由人 官宣海报（原帖截图+中文翻译）" loading="lazy"></details>
     </article>
     </section>
   <section class="day">
-    <div class="day-head"><span class="date">2026-11-15</span><span class="weekday">周日</span></div>
+    <div class="day-head"><span class="date">2026-11-15</span><span class="weekday">周日</span><span class="count">2 条官宣</span></div>
     <article class="card">
       <div class="card-head"><span class="time">12:30 · 北京时间</span><h3>glacier 加盟 JDG</h3><span class="num">#152</span></div>
-      <img src="tr-152-glacier-jdg.png" alt="glacier 加盟 JDG 官宣海报（原帖截图+中文翻译）" loading="lazy">
+      <details class="poster"><summary>查看原帖截图 + 中文翻译</summary><img src="tr-152-glacier-jdg.png" alt="glacier 加盟 JDG 官宣海报（原帖截图+中文翻译）" loading="lazy"></details>
     </article>
     <article class="card">
       <div class="card-head"><span class="time">00:03 · 北京时间</span><h3>Beşiktaş 公布 2027 阵容</h3><span class="num">#153</span></div>
-      <img src="tr-153-besiktas.png" alt="Beşiktaş 公布 2027 阵容 官宣海报（原帖截图+中文翻译）" loading="lazy">
+      <details class="poster"><summary>查看原帖截图 + 中文翻译</summary><img src="tr-153-besiktas.png" alt="Beşiktaş 公布 2027 阵容 官宣海报（原帖截图+中文翻译）" loading="lazy"></details>
     </article>
     </section>
   <section class="day">
-    <div class="day-head"><span class="date">2026-11-14</span><span class="weekday">周六</span></div>
+    <div class="day-head"><span class="date">2026-11-14</span><span class="weekday">周六</span><span class="count">8 条官宣</span></div>
     <article class="card">
       <div class="card-head"><span class="time">12:00 · 北京时间</span><h3>glacier 离队 Wolves</h3><span class="num">#151</span></div>
-      <img src="tr-151-glacier.png" alt="glacier 离队 Wolves 官宣海报（原帖截图+中文翻译）" loading="lazy">
+      <details class="poster"><summary>查看原帖截图 + 中文翻译</summary><img src="tr-151-glacier.png" alt="glacier 离队 Wolves 官宣海报（原帖截图+中文翻译）" loading="lazy"></details>
     </article>
     <article class="card">
       <div class="card-head"><span class="time">11:00 · 北京时间</span><h3>Spring 离队 Wolves</h3><span class="num">#150</span></div>
-      <img src="tr-150-spring.png" alt="Spring 离队 Wolves 官宣海报（原帖截图+中文翻译）" loading="lazy">
+      <details class="poster"><summary>查看原帖截图 + 中文翻译</summary><img src="tr-150-spring.png" alt="Spring 离队 Wolves 官宣海报（原帖截图+中文翻译）" loading="lazy"></details>
     </article>
     <article class="card">
       <div class="card-head"><span class="time">10:00 · 北京时间</span><h3>aluba 离队 Wolves</h3><span class="num">#147</span></div>
-      <img src="tr-147-aluba.png" alt="aluba 离队 Wolves 官宣海报（原帖截图+中文翻译）" loading="lazy">
+      <details class="poster"><summary>查看原帖截图 + 中文翻译</summary><img src="tr-147-aluba.png" alt="aluba 离队 Wolves 官宣海报（原帖截图+中文翻译）" loading="lazy"></details>
     </article>
     <article class="card">
       <div class="card-head"><span class="time">09:00 · 北京时间</span><h3>Deryeon 离队 Wolves</h3><span class="num">#149</span></div>
-      <img src="tr-149-deryeon.png" alt="Deryeon 离队 Wolves 官宣海报（原帖截图+中文翻译）" loading="lazy">
+      <details class="poster"><summary>查看原帖截图 + 中文翻译</summary><img src="tr-149-deryeon.png" alt="Deryeon 离队 Wolves 官宣海报（原帖截图+中文翻译）" loading="lazy"></details>
     </article>
     <article class="card">
       <div class="card-head"><span class="time">08:00 · 北京时间</span><h3>alexRr 主教练离队 Wolves</h3><span class="num">#148</span></div>
-      <img src="tr-148-alexrr.png" alt="alexRr 主教练离队 Wolves 官宣海报（原帖截图+中文翻译）" loading="lazy">
+      <details class="poster"><summary>查看原帖截图 + 中文翻译</summary><img src="tr-148-alexrr.png" alt="alexRr 主教练离队 Wolves 官宣海报（原帖截图+中文翻译）" loading="lazy"></details>
     </article>
     <article class="card">
       <div class="card-head"><span class="time">05:02 · 北京时间</span><h3>Darker 离队 LOUD</h3><span class="num">#145</span></div>
-      <img src="tr-145-darker.png" alt="Darker 离队 LOUD 官宣海报（原帖截图+中文翻译）" loading="lazy">
+      <details class="poster"><summary>查看原帖截图 + 中文翻译</summary><img src="tr-145-darker.png" alt="Darker 离队 LOUD 官宣海报（原帖截图+中文翻译）" loading="lazy"></details>
     </article>
     <article class="card">
       <div class="card-head"><span class="time">04:30 · 北京时间</span><h3>Zanatsu、prozin 加盟 2GAME</h3><span class="num">#146</span></div>
-      <img src="tr-146-zanatsu-prozin.png" alt="Zanatsu、prozin 加盟 2GAME 官宣海报（原帖截图+中文翻译）" loading="lazy">
+      <details class="poster"><summary>查看原帖截图 + 中文翻译</summary><img src="tr-146-zanatsu-prozin.png" alt="Zanatsu、prozin 加盟 2GAME 官宣海报（原帖截图+中文翻译）" loading="lazy"></details>
     </article>
     <article class="card">
       <div class="card-head"><span class="time">02:56 · 北京时间</span><h3>xeus 离队 FUT</h3><span class="num">#144</span></div>
-      <img src="tr-144-xeus.png" alt="xeus 离队 FUT 官宣海报（原帖截图+中文翻译）" loading="lazy">
+      <details class="poster"><summary>查看原帖截图 + 中文翻译</summary><img src="tr-144-xeus.png" alt="xeus 离队 FUT 官宣海报（原帖截图+中文翻译）" loading="lazy"></details>
     </article>
     </section>
   <section class="day">
-    <div class="day-head"><span class="date">2026-11-13</span><span class="weekday">周五</span></div>
+    <div class="day-head"><span class="date">2026-11-13</span><span class="weekday">周五</span><span class="count">8 条官宣</span></div>
     <article class="card">
       <div class="card-head"><span class="time">18:00 · 北京时间</span><h3>Ray 加盟 Gen.G</h3><span class="num">#141</span></div>
-      <img src="tr-141-ray.png" alt="Ray 加盟 Gen.G 官宣海报（原帖截图+中文翻译）" loading="lazy">
+      <details class="poster"><summary>查看原帖截图 + 中文翻译</summary><img src="tr-141-ray.png" alt="Ray 加盟 Gen.G 官宣海报（原帖截图+中文翻译）" loading="lazy"></details>
     </article>
     <article class="card">
       <div class="card-head"><span class="time">16:58 · 北京时间</span><h3>alvinboy 加盟 BLG</h3><span class="num">#140</span></div>
-      <img src="tr-140-alvinboy.png" alt="alvinboy 加盟 BLG 官宣海报（原帖截图+中文翻译）" loading="lazy">
+      <details class="poster"><summary>查看原帖截图 + 中文翻译</summary><img src="tr-140-alvinboy.png" alt="alvinboy 加盟 BLG 官宣海报（原帖截图+中文翻译）" loading="lazy"></details>
     </article>
     <article class="card">
       <div class="card-head"><span class="time">16:00 · 北京时间</span><h3>something 续约留队 Paper Rex</h3><span class="num">#139</span></div>
-      <img src="tr-139-something.png" alt="something 续约留队 Paper Rex 官宣海报（原帖截图+中文翻译）" loading="lazy">
+      <details class="poster"><summary>查看原帖截图 + 中文翻译</summary><img src="tr-139-something.png" alt="something 续约留队 Paper Rex 官宣海报（原帖截图+中文翻译）" loading="lazy"></details>
     </article>
     <article class="card">
       <div class="card-head"><span class="time">11:00 · 北京时间</span><h3>Sacy 加盟 T1 任主教练</h3><span class="num">#138</span></div>
-      <img src="tr-138-sacy.png" alt="Sacy 加盟 T1 任主教练 官宣海报（原帖截图+中文翻译）" loading="lazy">
+      <details class="poster"><summary>查看原帖截图 + 中文翻译</summary><img src="tr-138-sacy.png" alt="Sacy 加盟 T1 任主教练 官宣海报（原帖截图+中文翻译）" loading="lazy"></details>
     </article>
     <article class="card">
       <div class="card-head"><span class="time">08:49 · 北京时间</span><h3>kiNgg 离队 Leviatán</h3><span class="num">#137</span></div>
-      <img src="tr-137-kingg.png" alt="kiNgg 离队 Leviatán 官宣海报（原帖截图+中文翻译）" loading="lazy">
+      <details class="poster"><summary>查看原帖截图 + 中文翻译</summary><img src="tr-137-kingg.png" alt="kiNgg 离队 Leviatán 官宣海报（原帖截图+中文翻译）" loading="lazy"></details>
     </article>
     <article class="card">
       <div class="card-head"><span class="time">04:02 · 北京时间</span><h3>Asuna 续约留队 100 Thieves</h3><span class="num">#136</span></div>
-      <img src="tr-136-asuna.png" alt="Asuna 续约留队 100 Thieves 官宣海报（原帖截图+中文翻译）" loading="lazy">
+      <details class="poster"><summary>查看原帖截图 + 中文翻译</summary><img src="tr-136-asuna.png" alt="Asuna 续约留队 100 Thieves 官宣海报（原帖截图+中文翻译）" loading="lazy"></details>
     </article>
     <article class="card">
       <div class="card-head"><span class="time">北京时间</span><h3>hezacoil 加盟 FUT</h3><span class="num">#133</span></div>
-      <img src="tr-133-hezacoil.png" alt="hezacoil 加盟 FUT 官宣海报（原帖截图+中文翻译）" loading="lazy">
+      <details class="poster"><summary>查看原帖截图 + 中文翻译</summary><img src="tr-133-hezacoil.png" alt="hezacoil 加盟 FUT 官宣海报（原帖截图+中文翻译）" loading="lazy"></details>
     </article>
     <article class="card">
       <div class="card-head"><span class="time">北京时间</span><h3>batujnax 加盟 FUT</h3><span class="num">#134</span></div>
-      <img src="tr-134-batujnax.png" alt="batujnax 加盟 FUT 官宣海报（原帖截图+中文翻译）" loading="lazy">
+      <details class="poster"><summary>查看原帖截图 + 中文翻译</summary><img src="tr-134-batujnax.png" alt="batujnax 加盟 FUT 官宣海报（原帖截图+中文翻译）" loading="lazy"></details>
     </article>
     </section>
   </main>

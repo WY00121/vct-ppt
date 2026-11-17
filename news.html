@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>瓦力喵每日资讯｜WALI GAMING</title>
-<meta name="description" content="瓦力喵每日资讯：每天早 8:00 / 晚 18:00，无畏契约四大赛区资讯与近期赛程。台下亦是主场。">
+<meta name="description" content="瓦力喵每日资讯：每天早 8:00 / 晚 18:00，无畏契约四大赛区资讯与近期赛程，时间轴展示。台下亦是主场。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="瓦力喵每日资讯｜WALI GAMING">
-<meta property="og:description" content="每天早 8:00 / 晚 18:00 更新 · 四大赛区资讯 + 近期赛程">
+<meta property="og:description" content="每天早 8:00 / 晚 18:00 更新 · 四大赛区资讯 + 近期赛程 · 时间轴">
 <meta name="theme-color" content="#0d0d0d">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%23FF4655'/><text x='32' y='44' font-family='Arial Black,Arial' font-size='34' font-weight='900' fill='white' text-anchor='middle'>W</text></svg>">
 <style>
@@ -17,42 +17,48 @@
   .badge { background:#ff4655; color:#fff; font-weight:900; padding:4px 10px; font-size:15px; clip-path:polygon(6px 0,100% 0,100% calc(100% - 6px),calc(100% - 6px) 100%,0 100%,0 6px); }
   header h1 { font-size:19px; letter-spacing:1px; }
   header h1 span { color:#ff4655; }
-  header .back { margin-left:auto; color:#ff7585; text-decoration:none; font-size:14px; font-weight:700; border:1px solid #ff4655; padding:6px 12px; border-radius:6px; }
-  .intro { max-width:860px; margin:0 auto; padding:18px 16px 4px; color:#aaa; font-size:14px; line-height:1.7; }
+  header nav { margin-left:auto; display:flex; gap:8px; }
+  header nav a { color:#ff7585; text-decoration:none; font-size:14px; font-weight:700; border:1px solid #ff4655; padding:6px 12px; border-radius:6px; }
+  .intro { max-width:860px; margin:0 auto; padding:18px 16px 2px; color:#aaa; font-size:14px; line-height:1.7; }
   .intro b { color:#fff; }
-  main { max-width:860px; margin:0 auto; padding:10px 12px 40px; }
-  .edition { margin-top:22px; }
-  .edition .meta { display:flex; align-items:baseline; gap:10px; margin:0 4px 10px; }
-  .edition .date { font-size:20px; font-weight:900; }
-  .edition .tag { background:#ff4655; color:#fff; font-size:13px; font-weight:700; padding:2px 9px; border-radius:4px; }
-  .edition .weekday { color:#888; font-size:14px; }
-  .edition img { width:100%; height:auto; display:block; border:1px solid #2a2a2a; border-radius:8px; background:#1a1a1a; }
+  .timeline { position:relative; max-width:860px; margin:0 auto; padding:8px 16px 44px 44px; }
+  .timeline::before { content:''; position:absolute; top:0; bottom:0; left:23px; width:2px; background:linear-gradient(#ff4655, #3a3a3a); }
+  .day { position:relative; margin-top:30px; }
+  .day::before { content:''; position:absolute; left:-28px; top:4px; width:11px; height:11px; border-radius:50%; background:#ff4655; border:3px solid #0d0d0d; box-shadow:0 0 0 2px #ff4655; }
+  .day-head { display:flex; align-items:baseline; gap:10px; margin-bottom:12px; }
+  .day-head .date { font-size:21px; font-weight:900; }
+  .day-head .weekday { color:#888; font-size:14px; }
+  .day-head .count { margin-left:auto; color:#666; font-size:13px; }
   footer { border-top:1px solid #2a2a2a; padding:22px 16px 34px; text-align:center; color:#888; font-size:14px; line-height:1.9; }
   footer .slogan { color:#ff4655; font-weight:900; font-size:16px; }
+
+  .day-head .tag { background:#ff4655; color:#fff; font-size:13px; font-weight:700; padding:2px 9px; border-radius:4px; }
+  details.poster summary { cursor:pointer; color:#ff7585; font-size:14px; font-weight:700; padding:9px 12px; border:1px solid #333; border-radius:6px; list-style:none; background:#141414; }
+  details.poster summary::-webkit-details-marker { display:none; }
+  details.poster img { width:100%; height:auto; display:block; margin-top:10px; border:1px solid #2a2a2a; border-radius:8px; background:#1a1a1a; }
 </style>
 </head>
 <body>
 <header>
   <span class="badge">W</span>
   <h1>瓦力喵每日资讯 <span>WALI GAMING</span></h1>
-  <a class="back" href="transfers.html">转会讯息</a>
-  <a class="back" href="index.htm">← 观赛手册</a>
+  <nav><a href="transfers.html">转会讯息</a><a href="index.htm">观赛手册</a></nav>
 </header>
-<p class="intro">每天 <b>早 8:00 / 晚 18:00</b> 更新，覆盖 CN / 美洲 / EMEA / 太平洋四大赛区与近期赛程。本页与瓦力喵每日资讯同步，最新一期在最上方。</p>
-<main>
-  <section class="edition">
-    <div class="meta"><span class="date">2026-11-17</span><span class="tag">早间版</span><span class="weekday">周二</span></div>
-    <img src="news-2026-11-17-am.png" alt="瓦力喵每日资讯 2026-11-17 早间版" loading="lazy">
+<p class="intro">每天 <b>早 8:00 / 晚 18:00</b> 更新，覆盖 CN / 美洲 / EMEA / 太平洋四大赛区与近期赛程。沿时间轴按日期倒序排列，最新一期默认展开，其余点开查看。</p>
+<main class="timeline">
+  <section class="day">
+    <div class="day-head"><span class="date">2026-11-17</span><span class="tag">早间版</span><span class="weekday">周二</span></div>
+    <details class="poster" open><summary>本期海报（点击收起）</summary><img src="news-2026-11-17-am.png" alt="瓦力喵每日资讯 2026-11-17 早间版" loading="lazy"></details>
   </section>
-  <section class="edition">
-    <div class="meta"><span class="date">2026-11-16</span><span class="tag">晚间版</span><span class="weekday">周一</span></div>
-    <img src="news-2026-11-16-pm.png" alt="瓦力喵每日资讯 2026-11-16 晚间版" loading="lazy">
+  <section class="day">
+    <div class="day-head"><span class="date">2026-11-16</span><span class="tag">晚间版</span><span class="weekday">周一</span></div>
+    <details class="poster"><summary>展开本期海报</summary><img src="news-2026-11-16-pm.png" alt="瓦力喵每日资讯 2026-11-16 晚间版" loading="lazy"></details>
   </section>
-  <section class="edition">
-    <div class="meta"><span class="date">2026-11-16</span><span class="tag">早间版</span><span class="weekday">周一</span></div>
-    <img src="news-2026-11-16-am.png" alt="瓦力喵每日资讯 2026-11-16 早间版" loading="lazy">
+  <section class="day">
+    <div class="day-head"><span class="date">2026-11-16</span><span class="tag">早间版</span><span class="weekday">周一</span></div>
+    <details class="poster"><summary>展开本期海报</summary><img src="news-2026-11-16-am.png" alt="瓦力喵每日资讯 2026-11-16 早间版" loading="lazy"></details>
   </section>
-</main>
+  </main>
 <footer>
   <div class="slogan">台下亦是主场</div>
   抖音 / 小红书同名搜索「瓦力喵」<br>

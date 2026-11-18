@@ -107,14 +107,52 @@
   .m-tabbar .dot { display: none; }
   .m-tabbar a.on { background: #ff4655; color: #fff; }
 }
+
+/* === v11 DOTOWN full replica: cream paper, ink outlines, flat objects, no decorative motion === */
+body { background: #f6f0dd; color: #232323; }
+body::before { background: #f6f0dd; background-image: radial-gradient(rgba(35,35,35,.10) 2px, transparent 2.6px); background-size: 30px 30px; }
+header { background: #fffdf2; -webkit-backdrop-filter: none; backdrop-filter: none; border: 2px solid #232323; border-bottom: 4px solid #ff4655; border-radius: 0; box-shadow: 5px 5px 0 rgba(35,35,35,.9); color: #232323; }
+header .brand, header h1, header .title { color: #232323; }
+header nav a { background: #fdf6e0; color: #232323; border: 2px solid #232323; border-radius: 0; box-shadow: 3px 3px 0 rgba(35,35,35,.85); }
+.badge { border-radius: 0; box-shadow: 3px 3px 0 rgba(35,35,35,.85); }
+.glass, .card { background: #fffdf2; -webkit-backdrop-filter: none; backdrop-filter: none; border: 2px solid #232323; border-radius: 0; box-shadow: 5px 5px 0 rgba(35,35,35,.9); }
+.card:hover { transform: none; border-color: #232323; background: #fdf6e0; }
+.card h3 { color: #232323; }
+.desc { color: rgba(35,35,35,.75); }
+.time { color: rgba(35,35,35,.55); }
+.src, .src a { color: #c21630; }
+.intro { color: rgba(35,35,35,.7); }
+.timeline::before { background: #ff4655; box-shadow: none; }
+.day::before { background: #f6f0dd; border-radius: 0; box-shadow: 0 0 0 2px #ff4655, 3px 3px 0 rgba(35,35,35,.7); }
+.day-head .date { color: #232323; font-family: 'WaliPixel', "Noto Sans SC", sans-serif; font-size: 24px; }
+.day-head .tag { border-radius: 0; box-shadow: 2px 2px 0 rgba(35,35,35,.8); }
+details.poster summary { background: #fdf6e0; color: #232323; border: 2px solid #232323; border-radius: 0; box-shadow: 3px 3px 0 rgba(35,35,35,.85); }
+details.poster img { border: 2px solid #232323; border-radius: 0; }
+footer { color: rgba(35,35,35,.55); }
+footer .slogan { color: #232323; font-family: 'WaliPixel', "Noto Sans SC", sans-serif; font-size: 24px; }
+.crumb { max-width: 880px; margin: 14px auto 0; padding: 0 16px; font-size: 13.5px; color: rgba(35,35,35,.6); }
+.crumb a { color: #c21630; text-decoration: none; font-weight: 700; }
+.related { max-width: 880px; margin: 26px auto 0; padding: 0 16px; }
+.related h2 { font-family: 'WaliPixel', "Noto Sans SC", sans-serif; font-size: 24px; margin-bottom: 12px; }
+.related .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.related a { background: #fffdf2; border: 2px solid #232323; box-shadow: 5px 5px 0 rgba(35,35,35,.9); padding: 14px; text-decoration: none; color: #232323; display: block; }
+.related a b { display: block; font-size: 16px; margin-bottom: 4px; }
+.related a span { font-size: 12.5px; color: rgba(35,35,35,.6); }
+@media (max-width: 640px) { .related .tiles { grid-template-columns: 1fr; } }
+.m-tabbar { background: #fffdf2; -webkit-backdrop-filter: none; backdrop-filter: none; border: 2px solid #232323; border-top: 4px solid #ff4655; border-radius: 0; box-shadow: 5px 5px 0 rgba(35,35,35,.9); }
+.m-tabbar a { color: rgba(35,35,35,.65); font-family: 'WaliPixel', sans-serif; font-size: 12px; border-radius: 0; }
+.m-tabbar .dot { display: none; }
+.m-tabbar a.on { background: #ff4655; color: #fff; }
+header .px-cat { margin-right: 2px; }
 </style>
 </head>
 <body>
-<header>
+<header><div class="px-cat" data-px="3"></div>
   <span class="badge">W</span>
   <h1>转会讯息 <span>官宣追踪</span></h1>
   <nav><a href="news.html">每日资讯</a><a href="index.htm">观赛手册</a></nav>
 </header>
+<nav class="crumb"><a href="index.htm">首页</a> ＞ 转会讯息</nav>
 <p class="intro">只收<b>战队与选手官方官宣</b>，传闻不收。沿时间轴按日期倒序排列，点开任意一条即可看<b>原帖截图 + 中文翻译</b>。每天更新一次；截至 2026-11-17，本窗累计已核实官宣 <b>159 条</b>，本页先收录 11-13 以来的部分，其余陆续补齐。</p>
 <main class="timeline">
   <section class="day">
@@ -237,11 +275,24 @@
     </article>
     </section>
   </main>
+<section class="related"><h2>相关推荐</h2><div class="tiles"><a href="index.htm"><b>观赛手册</b><span>25 页线下观赛完全手册</span></a><a href="news.html"><b>每日资讯</b><span>早晚两档 · 四大赛区</span></a><a href="index.htm"><b>瓦力喵首页</b><span>今天看点 · 回到起点</span></a></div></section>
 <footer>
   <div class="slogan">台下亦是主场</div>
   抖音 / 小红书同名搜索「瓦力喵」<br>
   瓦力喵 WALI GAMING · 电竞内容厂牌
 </footer>
 <nav class="m-tabbar"><a href="index.htm"><span class="dot"></span>首页</a><a href="news.html"><span class="dot"></span>资讯</a><a href="transfers.html" class="on"><span class="dot"></span>转会</a><a href="index.htm"><span class="dot"></span>手册</a></nav>
+
+<script>
+(function () {
+  var MAP = [".XX........XX.",".XTTX....XTTX.",".XTTTTTTTTTTX.","XTTXXTTTTXXTTX","XTTEETTTTEETTX","XTTTTTTTTTTTTX","XTTTTLPPLTTTTX",".XTTTTTTTTTTX.",".XTTTTTTTTTTX.",".XTTXTTTTXTTX.","..XXXXXXXXXX.."];
+  var COLORS = { X: '#211d18', T: '#9a7a4e', E: '#69a85c', L: '#ead9b8', P: '#ef9aa4' };
+  document.querySelectorAll('.px-cat').forEach(function (el) {
+    var px = parseInt(el.dataset.px || '3', 10), sh = [];
+    MAP.forEach(function (row, y) { for (var x = 0; x < row.length; x++) { var c = COLORS[row[x]]; if (c) sh.push((x * px) + 'px ' + (y * px) + 'px 0 0 ' + c); } });
+    el.style.width = px + 'px'; el.style.height = px + 'px'; el.style.boxShadow = sh.join(','); el.style.position = 'relative'; el.style.flex = '0 0 auto';
+  });
+})();
+</script>
 </body>
 </html>

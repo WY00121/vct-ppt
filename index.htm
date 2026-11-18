@@ -362,6 +362,47 @@ html.glass body::before { background: #0a0a10; background-image: linear-gradient
 #m-tabbar a, #m-tabbar button { font-family: 'WaliPixel', sans-serif; font-size: 12px; font-weight: 400; border-radius: 0; }
 #m-tabbar .dot { display: none; }
 #m-tabbar .on { background: #ff4655; color: #fff; }
+
+/* === v11 DOTOWN full replica: cream paper, ink outlines, flat color objects, NO decorative motion === */
+html:not(.glass) {
+  --bg-primary: #f6f0dd; --bg-gradient: linear-gradient(135deg, #f6f0dd 0%, #fbf6e7 55%, #f6f0dd 100%);
+  --bg-card: #fffdf2; --bg-card-alt: #fdf6e0;
+  --text-primary: #232323; --text-secondary: rgba(35,35,35,.62); --border-color: #232323;
+  --accent-glow: rgba(255,70,85,.25);
+  --px-surface: #fffdf2; --px-surface2: #fdf6e0; --px-border: #232323; --px-shadow: 6px 6px 0 rgba(35,35,35,.9);
+}
+html:not(.glass) .deck-viewport { background-image: radial-gradient(rgba(35,35,35,.10) 2px, transparent 2.6px); background-size: 34px 34px; }
+html:not(.glass) .deck-viewport::after { background: radial-gradient(rgba(35,35,35,.07) 2px, transparent 2.6px); background-size: 34px 34px; background-position: 17px 17px; }
+html:not(.glass) .section-title, html:not(.glass) .main-title, html:not(.glass) .main-title-xl { text-shadow: 4px 4px 0 rgba(35,35,35,.16); }
+html:not(.glass) .slide-divider .section-num { text-shadow: 8px 8px 0 rgba(35,35,35,.14); }
+html:not(.glass) .slide-divider .bg-grid { background-image: linear-gradient(45deg, rgba(35,35,35,.06) 25%, transparent 25%, transparent 75%, rgba(35,35,35,.06) 75%), linear-gradient(45deg, rgba(35,35,35,.06) 25%, transparent 25%, transparent 75%, rgba(35,35,35,.06) 75%); }
+html:not(.glass) .card-icon { background-color: #fdf6e0; border-color: #232323; box-shadow: 3px 3px 0 rgba(35,35,35,.85); }
+html:not(.glass) .card-highlight { color: rgba(255,70,85,.35); }
+html:not(.glass) .info-card:hover, html:not(.glass) .info-card.clickable:hover { transform: none; background: #fdf6e0; box-shadow: 6px 6px 0 rgba(35,35,35,.9); }
+html:not(.glass) .wali-news-btn { background: #ff4655; border: 3px solid #141414; box-shadow: 5px 5px 0 #141414; }
+html:not(.glass) #wali-quicknav { background: #fffdf2 !important; color: #232323 !important; border: 2px solid #232323 !important; box-shadow: 5px 5px 0 rgba(35,35,35,.9) !important; }
+html:not(.glass) #wali-quicknav button, html:not(.glass) #wali-quicknav a, html:not(.glass) #wali-quicknav select { color: #232323 !important; background: #fdf6e0 !important; border: 2px solid #232323 !important; }
+html:not(.glass) #wali-controls button { background: #232323; color: #f6f0dd; border: 2px solid #141414; box-shadow: 4px 4px 0 rgba(35,35,35,.8); }
+html:not(.glass) #wali-progress-wrap { background: rgba(35,35,35,.15); }
+html:not(.glass) .px-scene { animation: none; }
+html:not(.glass) .px-scene .px-cat { animation: none; }
+html:not(.glass) .slide-divider .px-scene { right: 150px; bottom: 130px; }
+/* mobile DOTOWN */
+html.glass body::before { background: #f6f0dd; background-image: radial-gradient(rgba(35,35,35,.10) 2px, transparent 2.6px); background-size: 30px 30px; }
+#m-app { color: #232323; }
+#m-app .m-glass { background: #fffdf2; border: 2px solid #232323; box-shadow: 5px 5px 0 rgba(35,35,35,.9), inset 0 1px 0 rgba(255,255,255,.6); }
+#m-app .m-sub, #m-app .m-meta, #m-app .m-row .m-rt span, #m-app .m-chcard .s { color: rgba(35,35,35,.6); }
+#m-app .m-foot { color: rgba(35,35,35,.5); }
+#m-app .m-top-right { background: #fdf6e0; color: #232323; border: 2px solid #232323; }
+#m-app .m-sec a { color: #c21630; }
+#m-app .m-row .m-num { color: #c21630; }
+#m-app .m-back { background: #fffdf2; color: #232323; border: 2px solid #232323; }
+#m-app .m-chips button { background: #fffdf2; color: #232323; border: 2px solid #232323; box-shadow: 3px 3px 0 rgba(35,35,35,.85); }
+#m-app .m-article .card-content { color: rgba(35,35,35,.8); }
+#m-app .m-article .info-card { background: #fdf6e0; border: 2px solid #232323; }
+#m-tabbar { background: #fffdf2; border: 2px solid #232323; border-top: 4px solid #ff4655; box-shadow: 5px 5px 0 rgba(35,35,35,.9); }
+#m-tabbar a, #m-tabbar button { color: rgba(35,35,35,.65); }
+#m-tabbar .on { background: #ff4655; color: #fff; }
 </style>
 </head>
 <body>
@@ -1197,6 +1238,27 @@ document.querySelectorAll('.info-card.clickable').forEach(card => {
   var MAP = [".XX........XX.",".XTTX....XTTX.",".XTTTTTTTTTTX.","XTTXXTTTTXXTTX","XTTEETTTTEETTX","XTTTTTTTTTTTTX","XTTTTLPPLTTTTX",".XTTTTTTTTTTX.",".XTTTTTTTTTTX.",".XTTXTTTTXTTX.","..XXXXXXXXXX.."];
   var COLORS = { X: '#211d18', T: '#9a7a4e', E: '#69a85c', L: '#ead9b8', P: '#ef9aa4' };
   document.querySelectorAll('.px-cat').forEach(function (el) {
+    var px = parseInt(el.dataset.px || '8', 10), sh = [];
+    MAP.forEach(function (row, y) { for (var x = 0; x < row.length; x++) { var c = COLORS[row[x]]; if (c) sh.push((x * px) + 'px ' + (y * px) + 'px 0 0 ' + c); } });
+    el.style.width = px + 'px'; el.style.height = px + 'px'; el.style.boxShadow = sh.join(',');
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var LINES = ['先想清，再出发！', '抢票，我有技巧！', '清单照着收！', '现场，跟我来！', '拍手要等对时机！', '时间座位都在这！', '出发前过一遍！', '祝你观赛愉快！'];
+  document.querySelectorAll('.slide.slide-divider').forEach(function (s, i) {
+    if (s.querySelector('.px-scene')) return;
+    var d = document.createElement('div');
+    d.className = 'px-scene';
+    d.innerHTML = '<div class="px-bubble">' + LINES[i % LINES.length] + '</div><div class="px-cat" data-px="7"></div>';
+    s.appendChild(d);
+  });
+  var MAP = [".XX........XX.",".XTTX....XTTX.",".XTTTTTTTTTTX.","XTTXXTTTTXXTTX","XTTEETTTTEETTX","XTTTTTTTTTTTTX","XTTTTLPPLTTTTX",".XTTTTTTTTTTX.",".XTTTTTTTTTTX.",".XTTXTTTTXTTX.","..XXXXXXXXXX.."];
+  var COLORS = { X: '#211d18', T: '#9a7a4e', E: '#69a85c', L: '#ead9b8', P: '#ef9aa4' };
+  document.querySelectorAll('.px-cat').forEach(function (el) {
+    if (el.dataset.done) return; el.dataset.done = '1';
     var px = parseInt(el.dataset.px || '8', 10), sh = [];
     MAP.forEach(function (row, y) { for (var x = 0; x < row.length; x++) { var c = COLORS[row[x]]; if (c) sh.push((x * px) + 'px ' + (y * px) + 'px 0 0 ' + c); } });
     el.style.width = px + 'px'; el.style.height = px + 'px'; el.style.boxShadow = sh.join(',');

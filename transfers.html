@@ -77,6 +77,17 @@
   details.poster summary { border-radius: 0; background: #1a1a24; border: 2px solid rgba(255,255,255,.2); box-shadow: 3px 3px 0 rgba(0,0,0,.5); }
   details.poster img { border-radius: 0; }
 }
+
+/* === v8 mobile tab bar (pages) === */
+.m-tabbar { display: none; }
+@media (max-width: 860px) {
+  body { padding-bottom: 96px; }
+  .m-tabbar { position: fixed; left: 50%; transform: translateX(-50%); bottom: 14px; z-index: 40; width: min(430px, calc(100% - 36px)); display: flex; padding: 8px; border-radius: 999px; background: rgba(19,19,29,.58); -webkit-backdrop-filter: blur(24px) saturate(180%); backdrop-filter: blur(24px) saturate(180%); border: 1px solid rgba(255,255,255,.17); box-shadow: inset 0 1px 0 rgba(255,255,255,.22), 0 18px 40px rgba(0,0,0,.5); }
+  .m-tabbar a { flex: 1; color: rgba(235,238,245,.72); font-size: 13.5px; font-weight: 700; padding: 9px 0 7px; border-radius: 999px; text-decoration: none; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 3px; }
+  .m-tabbar .dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,.35); }
+  .m-tabbar a.on { color: #fff; background: rgba(255,255,255,.10); }
+  .m-tabbar a.on .dot { background: #ff4655; box-shadow: 0 0 8px rgba(255,70,85,.8); }
+}
 </style>
 </head>
 <body>
@@ -212,5 +223,6 @@
   抖音 / 小红书同名搜索「瓦力喵」<br>
   瓦力喵 WALI GAMING · 电竞内容厂牌
 </footer>
+<nav class="m-tabbar"><a href="index.htm"><span class="dot"></span>首页</a><a href="news.html"><span class="dot"></span>资讯</a><a href="transfers.html" class="on"><span class="dot"></span>转会</a><a href="index.htm"><span class="dot"></span>手册</a></nav>
 </body>
 </html>

@@ -238,6 +238,73 @@ html:not(.glass) #wali-controls button { border-radius: 0; border: 2px solid rgb
 html:not(.glass) #wali-progress { background: repeating-linear-gradient(90deg, #ff4655 0 16px, rgba(255,70,85,.25) 16px 20px); box-shadow: none; }
 html:not(.glass) .logo-badge { border-radius: 0; box-shadow: 4px 4px 0 rgba(0,0,0,.55); }
 html:not(.glass) table th { background: #1d1d27; border-bottom: 3px solid #ff4655; }
+
+/* === v8 mobile native app (glass mode only): home feed + manual articles + tab bar === */
+#m-app { display: none; }
+html.glass #m-app { display: block; position: relative; z-index: 2; }
+html.glass .deck-viewport, html.glass #wali-quicknav, html.glass #wali-controls, html.glass #wali-progress, html.glass #wali-rotate-tip { display: none !important; }
+#m-app .m-wrap { max-width: 640px; margin: 0 auto; padding: 14px 14px 128px; }
+#m-app .m-glass { background: linear-gradient(155deg, rgba(255,255,255,.11), rgba(255,255,255,.045)); -webkit-backdrop-filter: blur(20px) saturate(170%); backdrop-filter: blur(20px) saturate(170%); border: 1px solid rgba(255,255,255,.16); border-radius: 24px; box-shadow: inset 0 1px 0 rgba(255,255,255,.26), 0 16px 38px rgba(0,0,0,.35); }
+#m-app .m-topbar { position: sticky; top: 10px; z-index: 30; display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 999px; }
+#m-app .m-badge { background: #ff4655; color: #fff; font-weight: 900; width: 34px; height: 34px; border-radius: 11px; display: flex; align-items: center; justify-content: center; font-size: 19px; box-shadow: 0 0 14px rgba(255,70,85,.5); }
+#m-app .m-brand { font-size: 18px; font-weight: 800; letter-spacing: .5px; }
+#m-app .m-top-right { margin-left: auto; font-size: 12.5px; color: rgba(235,238,245,.75); background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.15); padding: 5px 11px; border-radius: 999px; }
+#m-app .m-h1 { font-size: 34px; font-weight: 900; margin: 22px 4px 4px; letter-spacing: .5px; }
+#m-app .m-sub { color: rgba(235,238,245,.66); font-size: 14px; margin: 0 4px 16px; }
+#m-app .m-feature { padding: 14px; margin-bottom: 22px; }
+#m-app .m-feature .m-cover { background: linear-gradient(150deg, #c21630, #8f0f24); border-radius: 17px; padding: 20px 18px 16px; position: relative; overflow: hidden; }
+#m-app .m-feature .m-cover::after { content: 'W'; position: absolute; right: 2px; bottom: -38px; font-size: 130px; font-weight: 900; color: rgba(255,255,255,.13); }
+#m-app .m-feature .m-cover h2 { font-size: 25px; font-weight: 900; margin-bottom: 5px; }
+#m-app .m-feature .m-cover p { color: rgba(255,215,220,.9); font-size: 13.5px; font-weight: 700; letter-spacing: 1px; }
+#m-app .m-feature h3 { font-size: 18.5px; font-weight: 800; margin: 14px 4px 5px; line-height: 1.45; }
+#m-app .m-feature .m-meta { color: rgba(235,238,245,.6); font-size: 13px; margin: 0 4px 12px; }
+#m-app .m-btn { display: inline-block; background: #ff4655; color: #fff; font-weight: 800; font-size: 15px; padding: 10px 22px; border-radius: 999px; text-decoration: none; box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 8px 20px rgba(255,70,85,.35); }
+#m-app .m-sec { display: flex; align-items: baseline; margin: 24px 4px 12px; }
+#m-app .m-sec h2 { font-size: 21px; font-weight: 900; }
+#m-app .m-sec a { margin-left: auto; color: #ff8f99; font-size: 14px; text-decoration: none; font-weight: 700; }
+#m-app .m-row { display: flex; align-items: center; gap: 12px; padding: 13px 14px; border-radius: 19px; margin-bottom: 10px; text-decoration: none; color: #fff; }
+#m-app .m-chip { background: #ff4655; color: #fff; font-weight: 800; font-size: 13.5px; padding: 6px 10px; border-radius: 999px; white-space: nowrap; }
+#m-app .m-row .m-rt { flex: 1; min-width: 0; }
+#m-app .m-row .m-rt b { display: block; font-size: 15.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#m-app .m-row .m-rt span { font-size: 12.5px; color: rgba(235,238,245,.55); }
+#m-app .m-row .m-num { color: #ff7d88; font-weight: 900; font-size: 14px; }
+#m-app .m-shelf { display: flex; gap: 12px; overflow-x: auto; padding: 4px 2px 10px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+#m-app .m-shelf::-webkit-scrollbar { display: none; }
+#m-app .m-chcard { flex: 0 0 148px; padding: 15px 14px; border-radius: 20px; text-align: left; color: #fff; cursor: pointer; font-family: inherit; }
+#m-app .m-chcard .n { color: #ff7d88; font-weight: 900; font-size: 15px; }
+#m-app .m-chcard .t { display: block; font-size: 17px; font-weight: 800; margin: 6px 0 4px; }
+#m-app .m-chcard .s { font-size: 12.5px; color: rgba(235,238,245,.6); }
+#m-app .m-foot { text-align: center; color: rgba(235,238,245,.45); font-size: 12.5px; line-height: 1.9; margin-top: 28px; }
+#m-app .m-foot b { color: #ff4655; }
+#m-tabbar { position: fixed; left: 50%; transform: translateX(-50%); bottom: 14px; z-index: 40; width: min(430px, calc(100% - 36px)); display: flex; padding: 8px; border-radius: 999px; background: rgba(19,19,29,.58); -webkit-backdrop-filter: blur(24px) saturate(180%); backdrop-filter: blur(24px) saturate(180%); border: 1px solid rgba(255,255,255,.17); box-shadow: inset 0 1px 0 rgba(255,255,255,.22), 0 18px 40px rgba(0,0,0,.5); }
+#m-tabbar a, #m-tabbar button { flex: 1; background: none; border: 0; color: rgba(235,238,245,.72); font-size: 13.5px; font-weight: 700; padding: 9px 0 7px; border-radius: 999px; text-decoration: none; text-align: center; cursor: pointer; font-family: inherit; display: flex; flex-direction: column; align-items: center; gap: 3px; }
+#m-tabbar .dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,.35); }
+#m-tabbar .on { color: #fff; background: rgba(255,255,255,.10); }
+#m-tabbar .on .dot { background: #ff4655; box-shadow: 0 0 8px rgba(255,70,85,.8); }
+#m-app .m-back { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.15); color: #fff; font-size: 14px; font-weight: 700; padding: 8px 14px; border-radius: 999px; cursor: pointer; font-family: inherit; }
+#m-app .m-chips { display: flex; gap: 8px; overflow-x: auto; padding: 14px 2px 6px; scrollbar-width: none; }
+#m-app .m-chips::-webkit-scrollbar { display: none; }
+#m-app .m-chips button { flex: 0 0 auto; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); color: #fff; font-size: 13.5px; font-weight: 700; padding: 7px 13px; border-radius: 999px; cursor: pointer; font-family: inherit; }
+#m-app .m-chapter { font-size: 20px; font-weight: 900; margin: 26px 4px 4px; scroll-margin-top: 86px; }
+#m-app .m-chapter span { color: #ff4655; margin-right: 8px; }
+#m-app .m-article { padding: 18px 16px; border-radius: 22px; margin-top: 12px; }
+#m-app .m-article .bg-grid, #m-app .m-article .header-bar { display: none !important; }
+#m-app .m-article *, #m-app .m-article { position: static; }
+#m-app .m-article .section-title { font-size: 23px; line-height: 1.3; margin-bottom: 10px; text-shadow: none; letter-spacing: 0; }
+#m-app .m-article .card-title { font-size: 15.5px; }
+#m-app .m-article .card-content { font-size: 14px; line-height: 1.7; color: rgba(235,238,245,.82); }
+#m-app .m-article .alert-text, #m-app .m-article .alert-title { font-size: 14px; line-height: 1.65; }
+#m-app .m-article .content-area, #m-app .m-article .content-area-full, #m-app .m-article .content-quad, #m-app .m-article .content-thirds, #m-app .m-article .two-col { display: flex; flex-direction: column; gap: 11px; }
+#m-app .m-article [style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+#m-app .m-article .info-card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 16px; box-shadow: none; margin-bottom: 11px; }
+#m-app .m-article .info-card::before { display: none; }
+#m-app .m-article table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; font-size: 13.5px; }
+#m-app .m-article img { max-width: 100%; height: auto; }
+
+#m-app .m-article { overflow: hidden; }
+#m-app .m-article * { max-width: 100%; }
+#m-app .m-article div, #m-app .m-article section { height: auto !important; min-height: 0 !important; max-height: none !important; }
+#m-app .m-article [style*="display: flex"], #m-app .m-article [style*="display:flex"] { flex-wrap: wrap !important; }
 </style>
 </head>
 <body>
@@ -943,6 +1010,128 @@ document.querySelectorAll('.info-card.clickable').forEach(card => {
 (function initFromHash() {
   const m = location.hash.match(/^#p(\d+)$/);
   showSlide(m ? parseInt(m[1]) - 1 : 0);
+})();
+</script>
+
+<div id="m-app">
+  <div class="m-wrap">
+    <div id="m-home" class="m-view">
+      <div class="m-topbar m-glass"><span class="m-badge">W</span><span class="m-brand">瓦力喵</span><span class="m-top-right">台下亦是主场</span></div>
+      <h1 class="m-h1">今天看点</h1>
+      <p class="m-sub" id="m-date">每日资讯 · 转会官宣 · 观赛手册</p>
+      <div class="m-feature m-glass">
+        <div class="m-cover"><h2>瓦力喵每日资讯</h2><p>WALI GAMING</p></div>
+        <h3 id="m-news-title">今天的资讯已更新</h3>
+        <p class="m-meta" id="m-news-meta">早 8:00 / 晚 18:00 更新 · 四大赛区 + 近期赛程</p>
+        <a class="m-btn" href="news.html">看资讯</a>
+      </div>
+      <div class="m-sec"><h2>转会动态</h2><a href="transfers.html">全部 →</a></div>
+      <div id="m-transfers">
+        <a class="m-row m-glass" href="transfers.html"><span class="m-chip">17:00</span><span class="m-rt"><b>Theeluvfamily 续约 FULL SENSE</b><span>官宣 · 原帖截图+翻译</span></span><span class="m-num">#161</span></a>
+        <a class="m-row m-glass" href="transfers.html"><span class="m-chip">14:56</span><span class="m-rt"><b>Crws 续约 FULL SENSE · 主教练</b><span>官宣 · 原帖截图+翻译</span></span><span class="m-num">#160</span></a>
+        <a class="m-row m-glass" href="transfers.html"><span class="m-chip">05:01</span><span class="m-rt"><b>keiko 加盟 Sentinels</b><span>官宣 · 原帖截图+翻译</span></span><span class="m-num">#156</span></a>
+      </div>
+      <div class="m-sec"><h2>观赛手册</h2><a href="#" id="m-manual-link">全部 25 页 →</a></div>
+      <div class="m-shelf" id="m-shelf"></div>
+      <p class="m-foot"><b>台下亦是主场</b><br>抖音 / 小红书同名搜索「瓦力喵」<br>瓦力喵 WALI GAMING · 电竞内容厂牌</p>
+    </div>
+    <div id="m-manual" class="m-view" hidden>
+      <div class="m-topbar m-glass"><button class="m-back" id="m-back">← 首页</button><span class="m-brand">观赛手册</span><span class="m-top-right">2026 实战版</span></div>
+      <div class="m-chips" id="m-chips"></div>
+      <div id="m-articles"></div>
+      <p class="m-foot"><b>台下亦是主场</b><br>瓦力喵 WALI GAMING</p>
+    </div>
+  </div>
+  <nav id="m-tabbar">
+    <button data-view="home" class="on"><span class="dot"></span>首页</button>
+    <a href="news.html"><span class="dot"></span>资讯</a>
+    <a href="transfers.html"><span class="dot"></span>转会</a>
+    <button data-view="manual"><span class="dot"></span>手册</button>
+  </nav>
+</div>
+<script>
+(function () {
+  var CHAPTERS = [
+    { n: '01', t: '观赛决策', s: '先想清再出发', from: 2, to: 4 },
+    { n: '02', t: '购票攻略', s: '强实名 · 防骗', from: 5, to: 8 },
+    { n: '03', t: '行前准备', s: '清单照着收', from: 9, to: 10 },
+    { n: '04', t: '现场体验', s: '入场到散场', from: 11, to: 15 },
+    { n: '05', t: '选手互动', s: '拍手与签名', from: 16, to: 18 },
+    { n: '06', t: '实用参考', s: '时间与座位', from: 19, to: 21 },
+    { n: '07', t: '速查清单', s: '出发前过一遍', from: 22, to: 23 }
+  ];
+  function showView(v) {
+    document.getElementById('m-home').hidden = v !== 'home';
+    document.getElementById('m-manual').hidden = v !== 'manual';
+    document.querySelectorAll('#m-tabbar [data-view]').forEach(function (b) { b.classList.toggle('on', b.dataset.view === v); });
+    window.scrollTo(0, 0);
+  }
+  function goChapter(i) {
+    showView('manual');
+    var el = document.getElementById('m-ch-' + i);
+    if (el) setTimeout(function () { el.scrollIntoView({ block: 'start' }); }, 30);
+  }
+  function build() {
+    var app = document.getElementById('m-app');
+    if (!app || app.dataset.built) return; app.dataset.built = '1';
+    var d = new Date();
+    var wk = ['周日','周一','周二','周三','周四','周五','周六'][d.getDay()];
+    document.getElementById('m-date').textContent = (d.getMonth() + 1) + '月' + d.getDate() + '日 ' + wk + ' · 每日资讯 / 转会官宣 / 观赛手册';
+    var shelf = document.getElementById('m-shelf'), chips = document.getElementById('m-chips');
+    CHAPTERS.forEach(function (c, i) {
+      var card = document.createElement('button');
+      card.className = 'm-chcard m-glass';
+      card.innerHTML = '<span class="n">' + c.n + '</span><span class="t">' + c.t + '</span><span class="s">' + c.s + '</span>';
+      card.addEventListener('click', function () { goChapter(i); });
+      shelf.appendChild(card);
+      var chip = document.createElement('button');
+      chip.textContent = c.n + ' ' + c.t;
+      chip.addEventListener('click', function () { goChapter(i); });
+      chips.appendChild(chip);
+    });
+    var slides = document.querySelectorAll('.deck-stage .slide');
+    var box = document.getElementById('m-articles');
+    CHAPTERS.forEach(function (c, ci) {
+      var h = document.createElement('h2');
+      h.className = 'm-chapter'; h.id = 'm-ch-' + ci;
+      h.innerHTML = '<span>' + c.n + '</span>' + c.t;
+      box.appendChild(h);
+      for (var i = c.from; i <= c.to && i < slides.length; i++) {
+        var clone = slides[i].cloneNode(true);
+        clone.querySelectorAll('.bg-grid, .header-bar').forEach(function (e) { e.remove(); });
+        var art = document.createElement('article');
+        art.className = 'm-article m-glass';
+        art.innerHTML = clone.innerHTML;
+        box.appendChild(art);
+      }
+    });
+    document.querySelectorAll('#m-tabbar [data-view]').forEach(function (b) {
+      b.addEventListener('click', function () { showView(b.dataset.view); });
+    });
+    document.getElementById('m-back').addEventListener('click', function () { showView('home'); });
+    document.getElementById('m-manual-link').addEventListener('click', function (e) { e.preventDefault(); showView('manual'); });
+    fetch('transfers.html').then(function (r) { return r.text(); }).then(function (t) {
+      var doc = new DOMParser().parseFromString(t, 'text/html');
+      var cards = doc.querySelectorAll('.card'); if (!cards.length) return;
+      var html = '';
+      for (var i = 0; i < Math.min(3, cards.length); i++) {
+        var time = (cards[i].querySelector('.time') || {}).textContent || '';
+        time = time.replace(' · 北京时间', '').trim();
+        var title = (cards[i].querySelector('h3') || {}).textContent || '';
+        var num = (cards[i].querySelector('.num') || {}).textContent || '';
+        html += '<a class="m-row m-glass" href="transfers.html"><span class="m-chip">' + time + '</span><span class="m-rt"><b>' + title + '</b><span>官宣 · 原帖截图+翻译</span></span><span class="m-num">' + num + '</span></a>';
+      }
+      if (html) document.getElementById('m-transfers').innerHTML = html;
+    }).catch(function () {});
+    fetch('news.html').then(function (r) { return r.text(); }).then(function (t) {
+      var doc = new DOMParser().parseFromString(t, 'text/html');
+      var day = doc.querySelector('.day'); if (!day) return;
+      var date = (day.querySelector('.date') || {}).textContent || '';
+      var tag = (day.querySelector('.tag') || {}).textContent || '';
+      if (date) document.getElementById('m-news-title').textContent = date + ' ' + tag + '已更新';
+    }).catch(function () {});
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', build); else build();
 })();
 </script>
 </body>

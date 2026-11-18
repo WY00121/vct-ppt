@@ -403,6 +403,9 @@ html.glass body::before { background: #f6f0dd; background-image: radial-gradient
 #m-tabbar { background: #fffdf2; border: 2px solid #232323; border-top: 4px solid #ff4655; box-shadow: 5px 5px 0 rgba(35,35,35,.9); }
 #m-tabbar a, #m-tabbar button { color: rgba(35,35,35,.65); }
 #m-tabbar .on { background: #ff4655; color: #fff; }
+
+/* === v11-fix: remove the 30% black wash over slides so the cream paper shows === */
+html:not(.glass) .slide::before { background: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; }
 </style>
 </head>
 <body>

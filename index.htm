@@ -305,6 +305,29 @@ html.glass .deck-viewport, html.glass #wali-quicknav, html.glass #wali-controls,
 #m-app .m-article * { max-width: 100%; }
 #m-app .m-article div, #m-app .m-article section { height: auto !important; min-height: 0 !important; max-height: none !important; }
 #m-app .m-article [style*="display: flex"], #m-app .m-article [style*="display:flex"] { flex-wrap: wrap !important; }
+
+/* === v9 PC unified card layer system: one surface, one border, one shadow === */
+html:not(.glass) { --px-surface: #15151f; --px-surface2: #1b1b28; --px-border: #333344; --px-shadow: 6px 6px 0 rgba(0,0,0,.6); }
+html:not(.glass) .info-card, html:not(.glass) .stat-box, html:not(.glass) .alert-box,
+html:not(.glass) .list-item, html:not(.glass) .timeline-item, html:not(.glass) .stat-item {
+  background: var(--px-surface); border: 2px solid var(--px-border); border-radius: 0;
+  box-shadow: var(--px-shadow);
+}
+html:not(.glass) .info-card::before { height: 4px; }
+html:not(.glass) .stat-box, html:not(.glass) .alert-box, html:not(.glass) .list-item, html:not(.glass) .timeline-item {
+  box-shadow: var(--px-shadow), inset 0 4px 0 rgba(255,70,85,.55);
+}
+html:not(.glass) .info-card:hover, html:not(.glass) .info-card.clickable:hover {
+  background: var(--px-surface2); transform: translate(-2px,-2px);
+  box-shadow: 9px 9px 0 rgba(0,0,0,.6); border-color: #45455c;
+}
+html:not(.glass) .card-highlight { font-family: 'WaliPixel', monospace; color: rgba(255,70,85,.25); text-shadow: none; }
+html:not(.glass) .card-icon { background: #101018; border: 2px solid var(--px-border); border-radius: 0; box-shadow: 3px 3px 0 rgba(0,0,0,.55); }
+html:not(.glass) .section-tag { background: var(--px-surface); border: 2px solid var(--px-border); border-radius: 0; box-shadow: var(--px-shadow); }
+html:not(.glass) .nav-tag { background: var(--px-surface); border: 2px solid var(--px-border); border-radius: 0; box-shadow: 3px 3px 0 rgba(0,0,0,.55); }
+html:not(.glass) .nav-tag.active { background: #ff4655; border-color: #000; color: #fff; }
+html:not(.glass) table { background: var(--px-surface); border: 2px solid var(--px-border); box-shadow: var(--px-shadow); }
+html:not(.glass) table td { border-color: rgba(255,255,255,.07); }
 </style>
 </head>
 <body>

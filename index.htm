@@ -328,6 +328,40 @@ html:not(.glass) .nav-tag { background: var(--px-surface); border: 2px solid var
 html:not(.glass) .nav-tag.active { background: #ff4655; border-color: #000; color: #fff; }
 html:not(.glass) table { background: var(--px-surface); border: 2px solid var(--px-border); box-shadow: var(--px-shadow); }
 html:not(.glass) table td { border-color: rgba(255,255,255,.07); }
+
+/* === v10 DOTOWN-inspired pixel creative layer (both ends) === */
+.px-cat { position: relative; flex: 0 0 auto; }
+.px-bubble { position: relative; background: #f4f1e6; color: #191919; border: 3px solid #141414; padding: 9px 13px; font-family: 'WaliPixel', sans-serif; font-size: 24px; line-height: 1.25; box-shadow: 5px 5px 0 rgba(0,0,0,.45); }
+.px-bubble::before { content: ''; position: absolute; left: -13px; bottom: 16px; width: 10px; height: 10px; background: #f4f1e6; border-left: 3px solid #141414; border-bottom: 3px solid #141414; }
+html:not(.glass) .px-scene { position: absolute; right: 130px; bottom: 105px; display: flex; align-items: flex-end; gap: 20px; z-index: 4; animation: px-walk 7s steps(21) infinite alternate; }
+html:not(.glass) .px-scene .px-cat { animation: px-bob 0.5s steps(2) infinite; }
+@keyframes px-walk { from { transform: translateX(0); } to { transform: translateX(-190px); } }
+@keyframes px-bob { 0% { margin-bottom: 0; } 100% { margin-bottom: 5px; } }
+html:not(.glass) .deck-stage .slide:first-child::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 14px; background: repeating-linear-gradient(90deg, #ff4655 0 28px, #15151f 28px 56px); z-index: 3; }
+html:not(.glass) .slide-divider .bg-grid { background-image: linear-gradient(45deg, rgba(255,255,255,.055) 25%, transparent 25%, transparent 75%, rgba(255,255,255,.055) 75%), linear-gradient(45deg, rgba(255,255,255,.055) 25%, transparent 25%, transparent 75%, rgba(255,255,255,.055) 75%); background-size: 18px 18px; background-position: 0 0, 9px 9px; opacity: .55; }
+html:not(.glass) .card-icon { background-color: #101018; background-image: linear-gradient(45deg, rgba(255,255,255,.07) 25%, transparent 25%, transparent 75%, rgba(255,255,255,.07) 75%), linear-gradient(45deg, rgba(255,255,255,.07) 25%, transparent 25%, transparent 75%, rgba(255,255,255,.07) 75%); background-size: 10px 10px; background-position: 0 0, 5px 5px; }
+/* mobile: glass -> pixel (same language as PC) */
+html.glass body::before { background: #0a0a10; background-image: linear-gradient(rgba(255,255,255,.032) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.032) 1px, transparent 1px); background-size: 48px 48px; }
+#m-app .m-glass { background: #15151f; -webkit-backdrop-filter: none; backdrop-filter: none; border: 2px solid #333344; border-radius: 0; box-shadow: 5px 5px 0 rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.06); }
+#m-app .m-topbar { border-radius: 0; }
+#m-app .m-badge { border-radius: 0; font-family: 'WaliPixel', sans-serif; font-weight: 400; box-shadow: 3px 3px 0 rgba(0,0,0,.6); }
+#m-app .m-brand { font-family: 'WaliPixel', sans-serif; font-size: 24px; font-weight: 400; }
+#m-app .m-top-right { border-radius: 0; }
+#m-app .m-h1 { font-family: 'WaliPixel', sans-serif; font-size: 36px; font-weight: 400; letter-spacing: 1px; }
+#m-app .m-sec h2 { font-family: 'WaliPixel', sans-serif; font-size: 24px; font-weight: 400; }
+#m-app .m-feature .m-cover { border-radius: 0; background-color: #b3122a; background-image: linear-gradient(45deg, rgba(255,255,255,.09) 25%, transparent 25%, transparent 75%, rgba(255,255,255,.09) 75%), linear-gradient(45deg, rgba(255,255,255,.09) 25%, transparent 25%, transparent 75%, rgba(255,255,255,.09) 75%); background-size: 14px 14px; background-position: 0 0, 7px 7px; }
+#m-app .m-feature .m-cover h2 { font-family: 'WaliPixel', sans-serif; font-weight: 400; font-size: 24px; }
+#m-app .m-btn { border-radius: 0; border: 2px solid #000; box-shadow: inset -4px -7px 0 rgba(0,0,0,.28), inset 4px 4px 0 rgba(255,255,255,.25), 4px 4px 0 rgba(0,0,0,.5); font-family: 'WaliPixel', sans-serif; font-size: 24px; font-weight: 400; padding: 7px 20px 9px; }
+#m-app .m-chip { border-radius: 0; border: 2px solid #000; box-shadow: 2px 2px 0 rgba(0,0,0,.5); }
+#m-app .px-scene-m { display: flex; align-items: flex-end; gap: 12px; margin: 2px 4px 16px; }
+#m-app .px-scene-m .px-bubble { font-size: 24px; }
+#m-app .m-back { border-radius: 0; border: 2px solid #333344; background: #15151f; }
+#m-app .m-chips button { border-radius: 0; background: #15151f; border: 2px solid #333344; box-shadow: 3px 3px 0 rgba(0,0,0,.5); }
+#m-app .m-chapter { font-family: 'WaliPixel', sans-serif; font-size: 24px; font-weight: 400; }
+#m-tabbar { background: #101018; -webkit-backdrop-filter: none; backdrop-filter: none; border: 2px solid #333344; border-top: 4px solid #ff4655; border-radius: 0; box-shadow: 6px 6px 0 rgba(0,0,0,.6); }
+#m-tabbar a, #m-tabbar button { font-family: 'WaliPixel', sans-serif; font-size: 12px; font-weight: 400; border-radius: 0; }
+#m-tabbar .dot { display: none; }
+#m-tabbar .on { background: #ff4655; color: #fff; }
 </style>
 </head>
 <body>
@@ -361,7 +395,7 @@ html:not(.glass) table td { border-color: rgba(255,255,255,.07); }
           </div>
         </div>
       </div>
-    </div>
+    <div class="px-scene"><div class="px-bubble">台下亦是主场！</div><div class="px-cat" data-px="9"></div></div></div>
 
     <!-- SLIDE 1: 目录 -->
     <div class="slide" id="slide-1">
@@ -1042,7 +1076,7 @@ document.querySelectorAll('.info-card.clickable').forEach(card => {
       <div class="m-topbar m-glass"><span class="m-badge">W</span><span class="m-brand">瓦力喵</span><span class="m-top-right">台下亦是主场</span></div>
       <h1 class="m-h1">今天看点</h1>
       <p class="m-sub" id="m-date">每日资讯 · 转会官宣 · 观赛手册</p>
-      <div class="m-feature m-glass">
+      <div class="px-scene-m"><div class="px-cat" data-px="5"></div><div class="px-bubble">台下亦是主场！</div></div><div class="m-feature m-glass">
         <div class="m-cover"><h2>瓦力喵每日资讯</h2><p>WALI GAMING</p></div>
         <h3 id="m-news-title">今天的资讯已更新</h3>
         <p class="m-meta" id="m-news-meta">早 8:00 / 晚 18:00 更新 · 四大赛区 + 近期赛程</p>
@@ -1155,6 +1189,18 @@ document.querySelectorAll('.info-card.clickable').forEach(card => {
     }).catch(function () {});
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', build); else build();
+})();
+</script>
+
+<script>
+(function () {
+  var MAP = [".XX........XX.",".XTTX....XTTX.",".XTTTTTTTTTTX.","XTTXXTTTTXXTTX","XTTEETTTTEETTX","XTTTTTTTTTTTTX","XTTTTLPPLTTTTX",".XTTTTTTTTTTX.",".XTTTTTTTTTTX.",".XTTXTTTTXTTX.","..XXXXXXXXXX.."];
+  var COLORS = { X: '#211d18', T: '#9a7a4e', E: '#69a85c', L: '#ead9b8', P: '#ef9aa4' };
+  document.querySelectorAll('.px-cat').forEach(function (el) {
+    var px = parseInt(el.dataset.px || '8', 10), sh = [];
+    MAP.forEach(function (row, y) { for (var x = 0; x < row.length; x++) { var c = COLORS[row[x]]; if (c) sh.push((x * px) + 'px ' + (y * px) + 'px 0 0 ' + c); } });
+    el.style.width = px + 'px'; el.style.height = px + 'px'; el.style.boxShadow = sh.join(',');
+  });
 })();
 </script>
 </body>

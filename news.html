@@ -79,6 +79,25 @@
   .m-tabbar a.on { color: #fff; background: rgba(255,255,255,.10); }
   .m-tabbar a.on .dot { background: #ff4655; box-shadow: 0 0 8px rgba(255,70,85,.8); }
 }
+
+/* === v10 mobile pixel reskin (same language as PC) === */
+@media (max-width: 860px) {
+  body::before { background: #0a0a10; background-image: linear-gradient(rgba(255,255,255,.032) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.032) 1px, transparent 1px); background-size: 48px 48px; }
+  header { border-radius: 0; background: #101018; -webkit-backdrop-filter: none; backdrop-filter: none; border: 2px solid #333344; border-bottom: 4px solid #ff4655; box-shadow: 5px 5px 0 rgba(0,0,0,.6); }
+  .badge { border-radius: 0; box-shadow: 3px 3px 0 rgba(0,0,0,.6); }
+  header nav a { border-radius: 0; }
+  .glass { background: #15151f; -webkit-backdrop-filter: none; backdrop-filter: none; border: 2px solid #333344; border-radius: 0; box-shadow: 5px 5px 0 rgba(0,0,0,.6); }
+  .day::before { border-radius: 0; }
+  .day-head .date { font-family: 'WaliPixel', "Noto Sans SC", sans-serif; font-size: 24px; }
+  .day-head .tag { border-radius: 0; box-shadow: 2px 2px 0 rgba(0,0,0,.6); }
+  details.poster summary { border-radius: 0; }
+  details.poster img { border-radius: 0; }
+  footer .slogan { font-family: 'WaliPixel', "Noto Sans SC", sans-serif; font-size: 24px; }
+  .m-tabbar { background: #101018; -webkit-backdrop-filter: none; backdrop-filter: none; border: 2px solid #333344; border-top: 4px solid #ff4655; border-radius: 0; box-shadow: 6px 6px 0 rgba(0,0,0,.6); }
+  .m-tabbar a { font-family: 'WaliPixel', sans-serif; font-size: 12px; border-radius: 0; }
+  .m-tabbar .dot { display: none; }
+  .m-tabbar a.on { background: #ff4655; color: #fff; }
+}
 </style>
 </head>
 <body>
